@@ -146,7 +146,7 @@
     .hero {
       position: relative;
       min-height: 88vh;
-      background: linear-gradient(135deg, #0d1b2a 0%, #162233 50%, #1a2a3a 100%);
+      background: url('Mason Assets/HeroImage.png') center center / cover no-repeat;
       display: flex; align-items: center;
       overflow: hidden;
     }
@@ -175,12 +175,10 @@
     }
     .hero-badge {
       display: inline-flex; align-items: center; gap: 8px;
-      background: rgba(200,16,46,0.15); border: 1px solid rgba(200,16,46,0.4);
-      border-radius: 50px; padding: 6px 16px; margin-bottom: 20px;
+      margin-bottom: 20px;
       font-family: 'Montserrat', sans-serif; font-size: 0.72rem;
-      font-weight: 700; color: #ff6b7a; letter-spacing: 0.1em; text-transform: uppercase;
+      font-weight: 300; color: rgba(255,255,255,0.8); letter-spacing: 0.1em; text-transform: uppercase;
     }
-    .hero-badge i { color: var(--gold); }
     .hero h1 {
       font-family: 'Montserrat', sans-serif; font-weight: 900;
       font-size: clamp(2.2rem, 5vw, 3.8rem); line-height: 1.08;
@@ -209,6 +207,15 @@
       border: 1px solid rgba(255,255,255,0.1);
       backdrop-filter: blur(12px);
       border-radius: 12px; padding: 36px 32px;
+      transition: box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+    @keyframes form-highlight {
+      0%   { box-shadow: 0 0 0 0 rgba(200,16,46,0.7); border-color: rgba(200,16,46,0.9); }
+      50%  { box-shadow: 0 0 0 12px rgba(200,16,46,0.15); border-color: rgba(200,16,46,0.6); }
+      100% { box-shadow: 0 0 0 0 rgba(200,16,46,0); border-color: rgba(255,255,255,0.1); }
+    }
+    .hero-card.highlight {
+      animation: form-highlight 1.2s ease forwards;
     }
     .hero-card h3 {
       font-family: 'Montserrat', sans-serif; font-weight: 800;
@@ -320,12 +327,9 @@
       border: 1px solid rgba(255,255,255,0.1);
       border-radius: 12px; padding: 40px 36px; text-align: center;
     }
-    .financing-highlight {
-      font-family: 'Montserrat', sans-serif; font-weight: 900;
-      font-size: 3.5rem; color: var(--gold); line-height: 1;
+    .financing-img {
+      width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 28px; display: block;
     }
-    .financing-highlight sup { font-size: 1.5rem; vertical-align: super; }
-    .financing-highlight-sub { color: rgba(255,255,255,0.7); font-size: 0.85rem; margin-bottom: 28px; }
     .financing-pills { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 28px; }
     .pill {
       background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);
@@ -440,13 +444,15 @@
       text-transform: uppercase; text-align: center; margin-bottom: 24px;
     }
     .badges-grid {
-      display: flex; align-items: center; justify-content: center;
+      display: flex; align-items: stretch; justify-content: center;
       gap: 28px; flex-wrap: wrap;
     }
     .badge-item {
       background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
       border-radius: 8px; padding: 14px 20px; text-align: center;
       transition: var(--transition);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      min-height: 100px;
     }
     .badge-item:hover { background: rgba(255,255,255,0.09); transform: translateY(-2px); }
     .badge-item i { font-size: 1.6rem; color: var(--gold); display: block; margin-bottom: 6px; }
@@ -625,7 +631,6 @@
     <!-- Left: Copy -->
     <div>
       <div class="hero-badge">
-        <i class="fa-solid fa-star"></i>
         GAF Master Elite Contractor 2025 &nbsp;•&nbsp; A+ BBB Rated
       </div>
       <h1 id="hero-heading">
@@ -708,22 +713,6 @@
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════════════
-     TRUST BAR
-══════════════════════════════════════════════════ -->
-<div class="trust-bar" aria-label="Trust indicators">
-  <div class="container">
-    <div class="trust-item"><i class="fa-solid fa-shield-halved"></i>Licensed &amp; Insured</div>
-    <div class="trust-divider"></div>
-    <div class="trust-item"><i class="fa-solid fa-award"></i>GAF Master Elite 2025</div>
-    <div class="trust-divider"></div>
-    <div class="trust-item"><i class="fa-solid fa-thumbs-up"></i>A+ BBB Rating</div>
-    <div class="trust-divider"></div>
-    <div class="trust-item"><i class="fa-solid fa-clock-rotate-left"></i>Lifetime Workmanship Warranty</div>
-    <div class="trust-divider"></div>
-    <div class="trust-item"><i class="fa-solid fa-bolt"></i>Free Estimates</div>
-  </div>
-</div>
 
 <!-- ══════════════════════════════════════════════════
      SERVICES
@@ -791,8 +780,7 @@
       </div>
       <!-- Right -->
       <div class="financing-right">
-        <div class="financing-highlight"><sup>%</sup>0</div>
-        <div class="financing-highlight-sub" style="margin-top:4px;">Interest Financing Available</div>
+        <img src="Mason Assets/RoofingImageRate.png" alt="Professional roofing installation" class="financing-img" />
         <div class="financing-pills">
           <div class="pill"><i class="fa-solid fa-dollar-sign"></i>$0 Down</div>
           <div class="pill"><i class="fa-solid fa-bolt"></i>60-Second Approval</div>
@@ -908,8 +896,7 @@
         <!-- About Column -->
         <div>
           <div class="footer-logo">
-            <div class="logo-icon"><i class="fa-solid fa-house-chimney"></i></div>
-            SML Roofing
+            <img src="Mason Assets/masonlogo.png" alt="Mason Roofing Logo" style="height:48px;width:auto;display:block;margin-bottom:12px;" />
           </div>
           <p class="footer-about">Serving Smith Mountain Lake, Roanoke, Lynchburg &amp; surrounding communities with expert roofing, siding, and gutter solutions. Locally owned, community-driven, and built on trust.</p>
           <ul class="footer-contact-list">
@@ -920,9 +907,9 @@
           </ul>
           <br/>
           <div class="footer-social" aria-label="Social media links">
-            <a href="#" class="social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-            <a href="#" class="social-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="#" class="social-btn" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://www.linkedin.com/company/mason-roofingva" class="social-btn" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://www.facebook.com/p/Mason-Company-Roofing-100051569756166/" class="social-btn" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://www.youtube.com/@masoncompany_roofing" class="social-btn" aria-label="YouTube" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-youtube"></i></a>
           </div>
         </div>
 
@@ -1060,6 +1047,20 @@
     navbar.style.boxShadow = window.scrollY > 10
       ? '0 4px 20px rgba(0,0,0,0.15)'
       : '0 2px 12px rgba(0,0,0,0.10)';
+  });
+
+  // Book Inspection — scroll to top and highlight form
+  const heroCard = document.getElementById('contact');
+  document.querySelectorAll('a.btn[href="#contact"]').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      setTimeout(() => {
+        heroCard.classList.remove('highlight');
+        void heroCard.offsetWidth; // reflow to restart animation
+        heroCard.classList.add('highlight');
+      }, 400);
+    });
   });
 </script>
 
