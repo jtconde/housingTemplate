@@ -146,10 +146,16 @@
     .hero {
       position: relative;
       min-height: 88vh;
-      background: url('Mason Assets/HeroImage.png') center center / cover no-repeat;
       display: flex; align-items: center;
       overflow: hidden;
     }
+    .hero-bg-img {
+      position: absolute; inset: 0;
+      background: url('Mason Assets/HeroImage.png') center center / cover no-repeat;
+      opacity: 0;
+      transition: opacity 1.2s ease;
+    }
+    .hero-bg-img.loaded { opacity: 1; }
     .hero-bg-pattern {
       position: absolute; inset: 0;
       background-image:
@@ -376,13 +382,28 @@
     .step { text-align: center; position: relative; padding: 0 16px; }
     .step-num {
       width: 72px; height: 72px; border-radius: 50%;
-      background: var(--navy); color: #fff; display: flex; align-items: center;
+      background: #fff; display: flex; align-items: center;
       justify-content: center; margin: 0 auto 20px; position: relative; z-index: 1;
       font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1.3rem;
-      border: 4px solid #fff; box-shadow: 0 0 0 2px var(--gray-mid);
-      transition: var(--transition);
+      border: 4px solid #fff; box-shadow: 0 0 0 2px var(--navy);
+      overflow: hidden; transition: box-shadow 0.25s ease;
     }
-    .step:hover .step-num { background: var(--red); box-shadow: 0 0 0 2px var(--red); }
+    .step-num::before {
+      content: ''; position: absolute; inset: 0;
+      background: var(--navy);
+      transform: scaleX(0); transform-origin: left center;
+      transition: transform 3.5s cubic-bezier(0.22, 1, 0.36, 1), background 0.4s ease;
+      z-index: 0;
+    }
+    .step-num span {
+      position: relative; z-index: 1;
+      color: var(--navy);
+      transition: color 0.2s ease 2.1s;
+    }
+    .step-num.step-filled::before { transform: scaleX(1); }
+    .step-num.step-filled span    { color: #fff; }
+    .step:hover .step-num         { box-shadow: 0 0 0 2px var(--red); }
+    .step:hover .step-num::before { background: var(--red); }
     .step h4 {
       font-family: 'Montserrat', sans-serif; font-weight: 800;
       font-size: 0.95rem; color: var(--navy); margin-bottom: 10px;
@@ -544,6 +565,24 @@
       .hero-btns .btn { width: 100%; justify-content: center; }
       .form-row { grid-template-columns: 1fr; }
     }
+
+    /* ─── Scroll Animations ─────────────────────────────────── */
+    .anim-hidden {
+      opacity: 0;
+      transform: translateY(36px);
+      transition: opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+                  transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .anim-hidden.from-left  { transform: translateX(-48px); }
+    .anim-hidden.from-right { transform: translateX(48px); }
+    .anim-hidden.from-scale { transform: scale(0.88) translateY(16px); }
+    .anim-visible {
+      opacity: 1 !important;
+      transform: none !important;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .anim-hidden { opacity: 1; transform: none; transition: none; }
+    }
   </style>
 </head>
 <body>
@@ -623,6 +662,7 @@
      HERO
 ══════════════════════════════════════════════════ -->
 <section class="hero" id="home" aria-labelledby="hero-heading">
+  <div class="hero-bg-img" id="heroBg"></div>
   <div class="hero-bg-pattern"></div>
   <div class="hero-overlay"></div>
   <div class="hero-accent"></div>
@@ -844,22 +884,22 @@
     </div>
     <div class="process-steps">
       <div class="step">
-        <div class="step-num">1</div>
+        <div class="step-num"><span>1</span></div>
         <h4>Book Free Inspection</h4>
         <p>Schedule online or call us. We'll be at your door fast — often the same week.</p>
       </div>
       <div class="step">
-        <div class="step-num">2</div>
+        <div class="step-num"><span>2</span></div>
         <h4>Get Your Estimate</h4>
         <p>Receive a detailed, written estimate with no pressure and full transparency on costs.</p>
       </div>
       <div class="step">
-        <div class="step-num">3</div>
+        <div class="step-num"><span>3</span></div>
         <h4>We Handle Everything</h4>
         <p>From permits to cleanup, our crew manages the entire project — you just relax.</p>
       </div>
       <div class="step">
-        <div class="step-num">4</div>
+        <div class="step-num"><span>4</span></div>
         <h4>Final Walkthrough</h4>
         <p>We inspect every detail with you before we close out, ensuring you're 100% satisfied.</p>
       </div>
@@ -1012,6 +1052,14 @@
      JAVASCRIPT
 ══════════════════════════════════════════════════ -->
 <script>
+  // Hero background fade-in
+  (function () {
+    const bg = document.getElementById('heroBg');
+    const img = new Image();
+    img.onload = () => bg.classList.add('loaded');
+    img.src = 'Mason Assets/HeroImage.png';
+  })();
+
   // Mobile menu toggle
   const hamburger = document.getElementById('hamburgerBtn');
   const mobileMenu = document.getElementById('mobileMenu');
@@ -1062,6 +1110,92 @@
       }, 400);
     });
   });
+
+  // ─── Scroll Animations ───────────────────────────────────
+  (function () {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    // Groups: each entry is [selector, extraClass, stagger(ms)]
+    const groups = [
+      ['.trust-item',                                         '',           80],
+      ['.services .section-label',                            '',            0],
+      ['.services .section-title',                            '',           80],
+      ['.services .section-sub',                              '',          160],
+      ['.services .btn-navy',                                 '',          220],
+      ['.service-card',                                       'from-scale', 90],
+      ['.financing-left .section-label',                      'from-left',   0],
+      ['.financing-left .section-title',                      'from-left',  80],
+      ['.financing-sub',                                      'from-left', 140],
+      ['.financing-points li',                                'from-left',  70],
+      ['.financing-left .btn',                                'from-left', 440],
+      ['.financing-right',                                    'from-right',  0],
+      ['.why-us .section-label, .why-us .section-title, .why-us .section-sub', '', 80],
+      ['.why-card',                                           'from-scale', 90],
+      ['.process .section-label, .process .section-title, .process .section-sub', '', 80],
+      ['.step',                                               '',          110],
+      ['.footer-cta h2',                                      '',            0],
+      ['.footer-cta p',                                       '',           80],
+      ['.footer-cta > .container > div',                      '',          140],
+      ['.badge-item',                                         'from-scale', 70],
+      ['.footer-col h5, .footer-col ul, .footer-hours',       '',          100],
+      ['.footer-col .btn-red',                                '',            0, 500],
+    ];
+
+    groups.forEach(([sel, extraCls, staggerMs, baseDelay = 0]) => {
+      document.querySelectorAll(sel).forEach((el, i) => {
+        el.classList.add('anim-hidden');
+        if (extraCls) el.classList.add(extraCls);
+        el.style.transitionDelay = (baseDelay + i * staggerMs) + 'ms';
+      });
+    });
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('anim-visible');
+        io.unobserve(entry.target);
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -120px 0px' });
+
+    document.querySelectorAll('.anim-hidden').forEach(el => io.observe(el));
+
+    // ── Step-num fill animation ───────────────────────────
+    const stepNums = document.querySelectorAll('.step-num');
+    const stepIo = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const idx = Array.from(stepNums).indexOf(entry.target);
+        setTimeout(() => entry.target.classList.add('step-filled'), idx * 3500);
+        stepIo.unobserve(entry.target);
+      });
+    }, { threshold: 0.5, rootMargin: '0px 0px -100px 0px' });
+    stepNums.forEach(el => stepIo.observe(el));
+
+    // ── Hero stat counters ────────────────────────────────
+    const statDefs = [
+      { idx: 0, end: 500 },
+      { idx: 1, end: 15  },
+      { idx: 2, end: 5   },
+      { idx: 3, end: 100 },
+    ];
+    const statEls = document.querySelectorAll('.hero-stat-num');
+    function runCounter(el, end, duration) {
+      const textNode = el.childNodes[0];
+      if (!textNode) return;
+      const t0 = performance.now();
+      (function tick(now) {
+        const p = Math.min((now - t0) / duration, 1);
+        const ease = 1 - Math.pow(1 - p, 3);
+        textNode.textContent = Math.round(ease * end);
+        if (p < 1) requestAnimationFrame(tick);
+      })(t0);
+    }
+    setTimeout(() => {
+      statDefs.forEach(({ idx, end }) => {
+        if (statEls[idx]) runCounter(statEls[idx], end, 1600);
+      });
+    }, 600);
+  })();
 </script>
 
 </body>
