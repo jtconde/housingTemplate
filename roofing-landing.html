@@ -195,7 +195,7 @@
       font-size: 1.1rem; color: rgba(255,255,255,0.75);
       line-height: 1.7; margin-bottom: 36px; max-width: 480px;
     }
-    .hero-btns { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 44px; }
+    .hero-btns { display: flex; flex-direction: column; gap: 14px; margin-bottom: 44px; }
     .hero-stats {
       display: flex; gap: 32px; padding-top: 32px;
       border-top: 1px solid rgba(255,255,255,0.12);
@@ -538,6 +538,9 @@
 
     /* ─── Responsive ────────────────────────────────────────────── */
     @media (max-width: 1024px) {
+      .nav-links, .nav-cta .btn { display: none; }
+      .nav-phone { display: none; }
+      .hamburger { display: flex; }
       .hero-content { grid-template-columns: 1fr; }
       .hero-card { max-width: 500px; }
       .services .container { grid-template-columns: 1fr; }
@@ -548,9 +551,6 @@
       .financing-inner { grid-template-columns: 1fr; }
     }
     @media (max-width: 768px) {
-      .nav-links, .nav-cta .btn { display: none; }
-      .nav-phone { display: none; }
-      .hamburger { display: flex; }
       .hero h1 { font-size: 2.2rem; }
       .hero-stats { gap: 20px; flex-wrap: wrap; }
       .services-grid { grid-template-columns: 1fr; }
@@ -631,10 +631,9 @@
 <!-- Mobile Menu -->
 <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Mobile navigation">
   <div class="mobile-menu-header">
-    <div class="nav-logo" style="color:#fff;">
-      <div class="logo-icon"><i class="fa-solid fa-house-chimney"></i></div>
-      SML Roofing
-    </div>
+    <a href="#about" class="nav-logo" aria-label="SML Roofing — Home">
+      <img src="Mason Assets/masonlogo.png" alt="Mason Roofing Logo" style="height:48px;width:auto;display:block;" />
+    </a>
     <button class="mobile-close" id="mobileClose" aria-label="Close menu"><i class="fa-solid fa-xmark"></i></button>
   </div>
   <ul class="mobile-links">
@@ -681,11 +680,11 @@
         Protect what matters most, with a roof built to last. Expert roofing, siding, and gutter services for homeowners across Smith Mountain Lake and beyond.
       </p>
       <div class="hero-btns">
-        <a href="#contact" class="btn btn-red" style="font-size:0.88rem;padding:16px 30px;">
+        <a href="#contact" class="btn btn-red" style="font-size:0.88rem;padding:16px 30px;flex:1;justify-content:center;">
           <i class="fa-solid fa-calendar-check"></i>
           Book Your Free Inspection
         </a>
-        <a href="tel:+15405551234" class="btn btn-outline" style="font-size:0.88rem;padding:16px 30px;">
+        <a href="tel:+15405551234" class="btn btn-outline" style="font-size:0.88rem;padding:16px 30px;flex:1;justify-content:center;">
           <i class="fa-solid fa-phone"></i>
           (540) 555-1234
         </a>
@@ -917,11 +916,11 @@
     <div class="container">
       <h2>Ready to Protect Your Home?</h2>
       <p>Get your free, no-obligation roof, gutter &amp; siding inspection today.</p>
-      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
-        <a href="#contact" class="btn btn-outline" style="font-size:0.9rem;padding:15px 32px;">
+      <div style="display:flex;flex-direction:column;gap:14px;align-items:center;">
+        <a href="#contact" class="btn btn-outline" style="font-size:0.9rem;padding:15px 32px;width:360px;justify-content:center;">
           <i class="fa-solid fa-calendar-check"></i>Book Your Free Inspection
         </a>
-        <a href="tel:+15405551234" class="btn" style="background:#fff;color:var(--red);border-color:#fff;font-size:0.9rem;padding:15px 32px;">
+        <a href="tel:+15405551234" class="btn" style="background:#fff;color:var(--red);border-color:#fff;font-size:0.9rem;padding:15px 32px;width:360px;justify-content:center;">
           <i class="fa-solid fa-phone"></i>(540) 555-1234
         </a>
       </div>
