@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gutters &amp; Gutter Guards | Seamless Aluminum | Mason Company</title>
+  <meta name="description" content="Seamless gutters and leaf guards in Smith Mountain Lake, Roanoke & Lynchburg. X-Treme and Bulldog gutter guard options — installed right by a family crew since the 80s." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Open Sans', sans-serif; color: #1a1a1a; background: #fff; overflow-x: hidden; }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+
+    :root {
+      --red:       #c8102e;
+      --red-dark:  #a50d24;
+      --navy:      #0d1b2a;
+      --gold:      #e8a020;
+      --gray-bg:   #f5f6f8;
+      --gray-mid:  #e2e4e8;
+      --gray-text: #555;
+      --radius:    6px;
+      --transition: all 0.2s ease;
+    }
+
+    .container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+    .container--wide { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 26px; border-radius: var(--radius); font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.85rem; letter-spacing: 0.04em; text-transform: uppercase; cursor: pointer; transition: var(--transition); border: 2px solid transparent; white-space: nowrap; }
+    .btn-red { background: var(--red); color: #fff; border-color: var(--red); }
+    .btn-red:hover { background: var(--red-dark); border-color: var(--red-dark); }
+
+    /* ─── Nav ─────────────────────────────────────────────── */
+    .navbar { background: #fff; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 12px rgba(0,0,0,0.10); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 0 24px; max-width: 1180px; margin: 0 auto; height: 72px; }
+    .nav-links { display: flex; align-items: center; gap: 4px; list-style: none; }
+    .nav-links > li { position: relative; }
+    .nav-links > li > a { display: flex; align-items: center; gap: 4px; padding: 10px 14px; border-radius: var(--radius); font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 12px; color: var(--navy); transition: var(--transition); }
+    .nav-links > li > a:hover { color: var(--red); background: #f7f0f1; }
+    .nav-links > li > a i { font-size: 0.6rem; transition: transform 0.2s; }
+    .nav-links > li:hover > a i { transform: rotate(180deg); }
+    .dropdown { position: absolute; top: calc(100% + 4px); left: 50%; transform: translateX(-50%); background: #fff; border-radius: var(--radius); box-shadow: 0 8px 32px rgba(0,0,0,0.14); min-width: 220px; opacity: 0; visibility: hidden; transition: all 0.2s ease; pointer-events: none; border-top: 3px solid var(--red); }
+    .nav-links > li:hover .dropdown { opacity: 1; visibility: visible; pointer-events: all; }
+    .dropdown a { display: flex; align-items: center; gap: 10px; padding: 12px 18px; font-family: 'Montserrat', sans-serif; font-size: 0.82rem; font-weight: 600; color: var(--navy); transition: var(--transition); }
+    .dropdown a:hover { background: #f7f0f1; color: var(--red); padding-left: 24px; }
+    .dropdown a i { color: var(--red); width: 16px; }
+    .dropdown li:not(:last-child) a { border-bottom: 1px solid var(--gray-mid); }
+    .nav-cta { display: flex; align-items: center; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+    .hamburger span { width: 26px; height: 2.5px; background: var(--navy); border-radius: 2px; }
+
+    /* ─── Page Header ─────────────────────────────────────── */
+    .page-header { background: var(--gray-bg); border-bottom: 1px solid var(--gray-mid); padding: 48px 0 40px; }
+    .breadcrumb { font-size: 0.75rem; color: var(--gray-text); margin-bottom: 16px; display: flex; align-items: center; gap: 6px; font-family: 'Montserrat', sans-serif; font-weight: 600; }
+    .breadcrumb a { color: var(--red); }
+    .breadcrumb i { font-size: 0.5rem; color: #999; }
+    .page-header h1 { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: clamp(1.8rem, 4vw, 2.6rem); color: var(--navy); line-height: 1.15; margin-bottom: 12px; }
+    .page-header h1 span { color: var(--red); }
+    .page-header p { font-size: 1rem; color: var(--gray-text); line-height: 1.7; max-width: 600px; }
+
+    /* ─── Content ─────────────────────────────────────────── */
+    .content-section { padding: 60px 0; }
+    .content-section + .content-section { border-top: 1px solid var(--gray-mid); }
+    .content-section.bg-gray { background: var(--gray-bg); }
+    h2.section-heading { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.5rem; color: var(--navy); margin-bottom: 20px; }
+    h2.section-heading span { color: var(--red); }
+    .lead { font-size: 1rem; color: var(--gray-text); line-height: 1.8; margin-bottom: 24px; }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
+
+    .check-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .check-list li { display: flex; align-items: flex-start; gap: 12px; font-size: 0.9rem; color: #333; line-height: 1.55; }
+    .check-list li i { color: var(--red); margin-top: 3px; flex-shrink: 0; font-size: 0.8rem; }
+
+    .service-list { display: flex; flex-direction: column; gap: 0; }
+    .service-item { padding: 20px 0; border-bottom: 1px solid var(--gray-mid); }
+    .service-item:first-child { padding-top: 0; }
+    .service-item:last-child { border-bottom: none; }
+    .service-item h3 { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1rem; color: var(--navy); margin-bottom: 6px; display: flex; align-items: center; gap: 10px; }
+    .service-item h3 i { color: var(--red); font-size: 0.95rem; }
+    .service-item p { font-size: 0.88rem; color: var(--gray-text); line-height: 1.7; }
+    .service-item .tag { display: inline-block; margin-top: 8px; background: rgba(232,160,32,0.12); border: 1px solid rgba(232,160,32,0.3); border-radius: 4px; padding: 3px 10px; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.68rem; color: #a07010; text-transform: uppercase; letter-spacing: 0.06em; }
+
+    .info-box { background: var(--navy); border-radius: 8px; padding: 32px; }
+    .info-box h3 { font-family: 'Montserrat', sans-serif; font-weight: 800; color: #fff; font-size: 1.05rem; margin-bottom: 16px; }
+    .info-box p { font-size: 0.88rem; color: rgba(255,255,255,0.7); line-height: 1.7; margin-bottom: 12px; }
+    .info-box p:last-of-type { margin-bottom: 0; }
+    .info-box .check-list li { color: rgba(255,255,255,0.85); }
+    .info-box .check-list li i { color: var(--gold); }
+
+    /* ─── CTA Strip ───────────────────────────────────────── */
+    .cta-strip { background: var(--red); padding: 48px 0; text-align: center; }
+    .cta-strip h2 { font-family: 'Montserrat', sans-serif; font-weight: 900; color: #fff; font-size: 1.7rem; margin-bottom: 8px; }
+    .cta-strip p { color: rgba(255,255,255,0.85); margin-bottom: 24px; font-size: 0.95rem; }
+    .cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .btn-outline-white { background: transparent; color: #fff; border: 2px solid rgba(255,255,255,0.7); font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.85rem; padding: 13px 26px; border-radius: var(--radius); display: inline-flex; align-items: center; gap: 8px; text-transform: uppercase; letter-spacing: 0.04em; transition: var(--transition); }
+    .btn-outline-white:hover { background: #fff; color: var(--red); }
+
+    /* ─── Footer ──────────────────────────────────────────── */
+    footer { background: var(--navy); color: rgba(255,255,255,0.7); }
+    .footer-main { padding: 56px 0 40px; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+    .footer-about { font-size: 0.85rem; line-height: 1.7; margin-bottom: 20px; }
+    .footer-contact-list { list-style: none; font-size: 0.83rem; }
+    .footer-contact-list li { display: flex; gap: 10px; padding: 6px 0; line-height: 1.4; }
+    .footer-contact-list i { color: var(--red); width: 16px; margin-top: 2px; flex-shrink: 0; }
+    .footer-contact-list a { color: inherit; transition: color 0.2s; }
+    .footer-contact-list a:hover { color: #fff; }
+    .footer-col h5 { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 0.78rem; color: #fff; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .footer-links { list-style: none; font-size: 0.83rem; }
+    .footer-links li { padding: 4px 0; }
+    .footer-links a { color: rgba(255,255,255,0.6); transition: color 0.2s; display: flex; align-items: center; gap: 6px; }
+    .footer-links a::before { content: '›'; color: var(--red); }
+    .footer-links a:hover { color: #fff; }
+    .footer-hours { font-size: 0.83rem; }
+    .footer-hours .day-row { display: flex; justify-content: space-between; padding: 4px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .footer-hours .day-row:last-child { border-bottom: none; }
+    .footer-hours .open { color: #4cd97b; font-weight: 600; font-size: 0.75rem; }
+    .footer-hours .closed { color: rgba(255,255,255,0.35); font-size: 0.75rem; }
+    .footer-social { display: flex; gap: 10px; margin-top: 20px; }
+    .social-btn { width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.6); font-size: 0.85rem; transition: var(--transition); }
+    .social-btn:hover { background: var(--red); border-color: var(--red); color: #fff; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding: 18px 0; font-size: 0.78rem; }
+    .footer-bottom .container--wide { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+    .footer-bottom-links { display: flex; gap: 18px; }
+    .footer-bottom-links a { color: rgba(255,255,255,0.45); transition: color 0.2s; }
+    .footer-bottom-links a:hover { color: #fff; }
+    .footer-service-area { border-top: 1px solid rgba(255,255,255,0.05); padding: 12px 0; text-align: center; font-size: 0.78rem; color: rgba(255,255,255,0.35); }
+    .footer-service-area i { color: var(--red); }
+
+    /* ─── Mobile Menu ─────────────────────────────────────── */
+    .mobile-menu { display: none; position: fixed; inset: 0; z-index: 2000; background: var(--navy); overflow-y: auto; padding: 24px; }
+    .mobile-menu.open { display: block; }
+    .mobile-menu-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 28px; }
+    .mobile-close { background: none; border: none; color: #fff; font-size: 1.5rem; cursor: pointer; }
+    .mobile-links { list-style: none; }
+    .mobile-links > li { border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .mobile-links > li > a { display: flex; align-items: center; justify-content: space-between; padding: 15px 0; color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.95rem; }
+    .mobile-sub { padding-left: 14px; }
+    .mobile-sub a { display: flex; align-items: center; gap: 10px; padding: 11px 0; color: rgba(255,255,255,0.65); font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 0.88rem; }
+    .mobile-sub a i { color: var(--red); width: 16px; }
+    .mobile-cta { margin-top: 24px; display: flex; flex-direction: column; gap: 10px; }
+
+    @media (max-width: 1024px) {
+      .nav-links, .nav-cta .btn { display: none; }
+      .hamburger { display: flex; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+    }
+    @media (max-width: 768px) {
+      .two-col { grid-template-columns: 1fr; gap: 36px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+      .footer-bottom .container--wide { flex-direction: column; text-align: center; }
+      .cta-btns { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="navbar" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="roofing-landing.html">
+      <img src="Mason Assets/masonlogo.png" alt="Mason Company" style="height:46px;width:auto;display:block;" />
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="roofing-landing.html">Home</a></li>
+      <li>
+        <a href="#">Services <i class="fa-solid fa-chevron-down"></i></a>
+        <ul class="dropdown" role="list">
+          <li><a href="roof-replacement.html"><i class="fa-solid fa-house-chimney"></i>Roof Replacement</a></li>
+          <li><a href="roof-inspections.html"><i class="fa-solid fa-magnifying-glass"></i>Roof Inspections</a></li>
+          <li><a href="siding.html"><i class="fa-solid fa-layer-group"></i>Siding</a></li>
+          <li><a href="gutters-guards.html"><i class="fa-solid fa-water"></i>Gutters &amp; Guards</a></li>
+        </ul>
+      </li>
+      <li><a href="roofing-landing.html#about">About</a></li>
+      <li><a href="roofing-landing.html#reviews">Reviews</a></li>
+      <li><a href="roofing-landing.html#contact">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="roofing-landing.html#contact" class="btn btn-red">Get Free Quote</a>
+    </div>
+    <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true">
+  <div class="mobile-menu-header">
+    <img src="Mason Assets/masonlogo.png" alt="Mason Company" style="height:42px;width:auto;" />
+    <button class="mobile-close" id="mobileClose"><i class="fa-solid fa-xmark"></i></button>
+  </div>
+  <ul class="mobile-links">
+    <li><a href="roofing-landing.html">Home</a></li>
+    <li>
+      <a href="#">Services <i class="fa-solid fa-chevron-right"></i></a>
+      <div class="mobile-sub">
+        <a href="roof-replacement.html"><i class="fa-solid fa-house-chimney"></i>Roof Replacement</a>
+        <a href="roof-inspections.html"><i class="fa-solid fa-magnifying-glass"></i>Roof Inspections</a>
+        <a href="siding.html"><i class="fa-solid fa-layer-group"></i>Siding</a>
+        <a href="gutters-guards.html"><i class="fa-solid fa-water"></i>Gutters &amp; Guards</a>
+      </div>
+    </li>
+    <li><a href="roofing-landing.html#about">About</a></li>
+    <li><a href="roofing-landing.html#reviews">Reviews</a></li>
+    <li><a href="roofing-landing.html#contact">Contact</a></li>
+  </ul>
+  <div class="mobile-cta">
+    <a href="tel:+15402974200" class="btn-outline-white" style="justify-content:center;"><i class="fa-solid fa-phone"></i>(540) 297-4200</a>
+    <a href="roofing-landing.html#contact" class="btn btn-red" style="justify-content:center;">Get Free Quote</a>
+  </div>
+</div>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="roofing-landing.html">Home</a>
+      <i class="fa-solid fa-chevron-right"></i>
+      <span>Gutters &amp; Guards</span>
+    </div>
+    <h1>Seamless Gutters &amp; Guards <span>That Actually Work</span></h1>
+    <p>Never climb a ladder again. Seamless aluminum gutters in two sizes, plus two guard options with a 10-year transferable warranty — installed the Mason way.</p>
+  </div>
+</div>
+
+<!-- SEAMLESS GUTTERS -->
+<section class="content-section">
+  <div class="container">
+    <div class="two-col">
+      <div>
+        <h2 class="section-heading">Seamless Aluminum Gutters</h2>
+        <p class="lead">Seamless gutters eliminate the weak points where sectional gutters leak. Formed on-site to match your roofline exactly — no seams, no joints, no failure points.</p>
+        <div class="service-list">
+          <div class="service-item">
+            <h3><i class="fa-solid fa-ruler"></i>5" or 6" Profiles</h3>
+            <p>Standard 5-inch for most homes, or upgrade to 6-inch for high-pitch roofs and areas that see heavy Virginia rainfall. We'll recommend the right size for your setup.</p>
+          </div>
+          <div class="service-item">
+            <h3><i class="fa-solid fa-screwdriver-wrench"></i>Hidden Hangers</h3>
+            <p>Concealed hangers provide a clean look and far stronger support than traditional spike-and-ferrule systems, so gutters won't sag or pull away over time.</p>
+          </div>
+          <div class="service-item">
+            <h3><i class="fa-solid fa-arrows-down-to-line"></i>Oversized Downspouts</h3>
+            <p>2×3 standard or oversized 3×4 downspouts move water away from your foundation fast — critical during Virginia's intense summer storms.</p>
+          </div>
+          <div class="service-item">
+            <h3><i class="fa-solid fa-trash"></i>Full Tear-Off &amp; Haul-Away</h3>
+            <p>We remove all old gutters and dispose of everything before we start. Your property stays clean the whole time — that's the Mason standard.</p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="info-box">
+          <h3>Why Gutters Matter</h3>
+          <p>Clogged or failing gutters are one of the most common causes of expensive home damage — most of it invisible until it's too late.</p>
+          <ul class="check-list">
+            <li><i class="fa-solid fa-check"></i>Foundation damage from water pooling at your home's base</li>
+            <li><i class="fa-solid fa-check"></i>Ice dams that force water under your shingles in winter</li>
+            <li><i class="fa-solid fa-check"></i>Fascia and soffit rot from overflow saturation</li>
+            <li><i class="fa-solid fa-check"></i>Mosquito breeding in standing water</li>
+          </ul>
+          <br/>
+          <p>A properly installed seamless gutter system with a guard eliminates all of these risks — and removes gutter cleaning from your to-do list entirely.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GUARD OPTIONS -->
+<section class="content-section bg-gray">
+  <div class="container">
+    <h2 class="section-heading" style="margin-bottom:8px;">Two Guard Options. <span>One Decision.</span></h2>
+    <p class="lead">Both are backed by a 10-year transferable warranty. Choose based on your debris type and budget.</p>
+    <div class="two-col">
+      <div class="service-list">
+        <div class="service-item" style="padding-top:0;">
+          <h3><i class="fa-solid fa-shield-halved"></i>X-Treme Gutter Guard</h3>
+          <p>Surgical-grade micro-mesh bonded to an aluminum body through a patented hemming process. The optimally sized openings block virtually everything — including fine pine needles and roof grit common around lake homes — while maintaining strong water flow even in heavy rain.</p>
+          <ul class="check-list" style="margin-top:12px;gap:8px;">
+            <li><i class="fa-solid fa-check"></i>Best for maximum protection, especially pine needle debris</li>
+            <li><i class="fa-solid fa-check"></i>Surgical-grade corrosion-resistant stainless mesh</li>
+            <li><i class="fa-solid fa-check"></i>Mesh permanently bonded — won't separate or blow off</li>
+          </ul>
+          <span class="tag">Best Protection</span>
+        </div>
+        <div class="service-item">
+          <h3><i class="fa-solid fa-circle-dollar-to-slot"></i>Bulldog Gutter Guard</h3>
+          <p>Sits flush inside your existing gutters and is virtually invisible from the street. Its perforated aluminum surface stops most leaves and debris without interfering with your roofing materials — and it never rusts, warps, or cracks.</p>
+          <ul class="check-list" style="margin-top:12px;gap:8px;">
+            <li><i class="fa-solid fa-check"></i>Best value — effective protection at a lower price point</li>
+            <li><i class="fa-solid fa-check"></i>Invisible from the ground, preserves curb appeal</li>
+            <li><i class="fa-solid fa-check"></i>Rust, warp, and crack resistant aluminum</li>
+          </ul>
+          <span class="tag">Best Value</span>
+        </div>
+      </div>
+      <div>
+        <h2 class="section-heading">Why Choose Mason</h2>
+        <ul class="check-list" style="gap:16px;">
+          <li><i class="fa-solid fa-check"></i><div><strong>10-year transferable warranty</strong> on both guard options — adds value when you sell your home.</div></li>
+          <li><i class="fa-solid fa-check"></i><div><strong>Custom fabricated on-site</strong> — seamless gutters are formed to your exact roofline, not pieced together from sections.</div></li>
+          <li><i class="fa-solid fa-check"></i><div><strong>Wide color selection</strong> — aluminum gutters available in colors to match your trim and exterior.</div></li>
+          <li><i class="fa-solid fa-check"></i><div><strong>Free inspection and written estimate</strong> — we'll assess your current gutters and recommend the right solution.</div></li>
+          <li><i class="fa-solid fa-check"></i><div><strong>0% financing available</strong> — $0 down, soft credit pull, funds in 1–5 business days.</div></li>
+          <li><i class="fa-solid fa-check"></i><div><strong>Local since the 80s</strong> — based in Wirtz, VA, serving Smith Mountain Lake, Roanoke, and Lynchburg.</div></li>
+        </ul>
+        <br/>
+        <a href="roofing-landing.html#contact" class="btn btn-red"><i class="fa-solid fa-calendar-check"></i>Get My Free Gutter Quote</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-strip">
+  <div class="container">
+    <h2>Stop Cleaning Gutters. Start Protecting Your Home.</h2>
+    <p>Free inspection. Written estimate. No obligation — ever.</p>
+    <div class="cta-btns">
+      <a href="roofing-landing.html#contact" class="btn-outline-white"><i class="fa-solid fa-calendar-check"></i>Book Your Free Gutter Inspection</a>
+      <a href="tel:+15402974200" class="btn" style="background:#fff;color:var(--red);border:2px solid #fff;font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.85rem;padding:13px 26px;border-radius:6px;display:inline-flex;align-items:center;gap:8px;text-transform:uppercase;letter-spacing:0.04em;"><i class="fa-solid fa-phone"></i>(540) 297-4200</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-main">
+    <div class="container--wide">
+      <div class="footer-grid">
+        <div>
+          <img src="Mason Assets/masonlogo.png" alt="Mason Company" style="height:44px;width:auto;margin-bottom:16px;" />
+          <p class="footer-about">Serving Smith Mountain Lake, Roanoke, Lynchburg &amp; surrounding communities with expert roofing, siding, and gutter solutions since the 80s.</p>
+          <ul class="footer-contact-list">
+            <li><i class="fa-solid fa-location-dot"></i><span>1627 Scruggs Road, Wirtz, VA 24184</span></li>
+            <li><i class="fa-solid fa-phone"></i><a href="tel:+15402974200">(540) 297-4200</a></li>
+            <li><i class="fa-solid fa-envelope"></i><a href="mailto:marc.mason@masoncompanyva.com">marc.mason@masoncompanyva.com</a></li>
+            <li><i class="fa-solid fa-id-card"></i><span>VA License #2705154500</span></li>
+          </ul>
+          <div class="footer-social">
+            <a href="https://www.linkedin.com/company/mason-roofingva" class="social-btn" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://www.facebook.com/p/Mason-Company-Roofing-100051569756166/" class="social-btn" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://www.youtube.com/@masoncompany_roofing" class="social-btn" aria-label="YouTube" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h5>Services</h5>
+          <ul class="footer-links">
+            <li><a href="roof-replacement.html">Roof Replacement</a></li>
+            <li><a href="roof-inspections.html">Roof Inspections</a></li>
+            <li><a href="siding.html">Siding</a></li>
+            <li><a href="gutters-guards.html">Gutters &amp; Guards</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Company</h5>
+          <ul class="footer-links">
+            <li><a href="roofing-landing.html#about">About Us</a></li>
+            <li><a href="roofing-landing.html#reviews">Reviews</a></li>
+            <li><a href="roofing-landing.html#financing">Financing</a></li>
+            <li><a href="#">Roofs for Troops</a></li>
+            <li><a href="#">Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Hours</h5>
+          <div class="footer-hours">
+            <div class="day-row"><span>Mon–Fri</span><span class="open">8am – 6pm</span></div>
+            <div class="day-row"><span>Saturday</span><span class="open">8am – 6pm</span></div>
+            <div class="day-row"><span>Sunday</span><span class="closed">Closed</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-service-area">
+    <i class="fa-solid fa-location-dot"></i>
+    Serving <strong style="color:rgba(255,255,255,0.55);">Smith Mountain Lake, Roanoke, Lynchburg</strong> &amp; surrounding Virginia communities
+  </div>
+  <div class="footer-bottom">
+    <div class="container--wide">
+      <span>&copy; 2025 Mason Company. All rights reserved.</span>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const hamburger = document.getElementById('hamburgerBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const mobileClose = document.getElementById('mobileClose');
+  hamburger.addEventListener('click', () => { mobileMenu.classList.add('open'); document.body.style.overflow = 'hidden'; });
+  function closeMenu() { mobileMenu.classList.remove('open'); document.body.style.overflow = ''; }
+  mobileClose.addEventListener('click', closeMenu);
+  mobileMenu.querySelectorAll('a').forEach(l => l.addEventListener('click', closeMenu));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
+</script>
+</body>
+</html>
