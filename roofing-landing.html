@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -14,134 +14,11 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
+  <!-- Shared styles & config — edit site.config.js to update colors, logo, content, awards -->
+  <link rel="stylesheet" href="styles.css" />
+  <script src="site.config.js"></script>
+
   <style>
-    /* ─── Reset & Base ─────────────────────────────────────────── */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Open Sans', sans-serif;
-      color: #1a1a1a;
-      background: #fff;
-      overflow-x: hidden;
-    }
-    img { max-width: 100%; display: block; }
-    a { text-decoration: none; color: inherit; }
-
-    /* ─── CSS Variables ─────────────────────────────────────────── */
-    :root {
-      --red:       #c8102e;
-      --red-dark:  #a50d24;
-      --navy:      #0d1b2a;
-      --navy-mid:  #162233;
-      --gold:      #e8a020;
-      --gray-bg:   #f5f6f8;
-      --gray-mid:  #e2e4e8;
-      --gray-text: #666;
-      --white:     #ffffff;
-      --radius:    6px;
-      --shadow:    0 4px 24px rgba(0,0,0,0.10);
-      --transition: all 0.25s ease;
-    }
-
-    /* ─── Utility ───────────────────────────────────────────────── */
-    .container { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
-    .btn {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 14px 28px; border-radius: var(--radius);
-      font-family: 'Montserrat', sans-serif; font-weight: 700;
-      font-size: 0.9rem; letter-spacing: 0.04em; text-transform: uppercase;
-      cursor: pointer; transition: var(--transition); border: 2px solid transparent; white-space: nowrap;
-    }
-    .btn-red  { background: var(--red); color: #fff; border-color: var(--red); }
-    .btn-red:hover { background: var(--red-dark); border-color: var(--red-dark); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(200,16,46,0.35); }
-    .btn-outline { background: transparent; color: #fff; border-color: #fff; }
-    .btn-outline:hover { background: #fff; color: var(--navy); transform: translateY(-2px); }
-    .btn-navy { background: var(--navy); color: #fff; border-color: var(--navy); }
-    .btn-navy:hover { background: var(--navy-mid); transform: translateY(-2px); box-shadow: var(--shadow); }
-    .section-label {
-      font-family: 'Montserrat', sans-serif; font-weight: 700;
-      font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase;
-      color: var(--red); margin-bottom: 10px;
-    }
-    .section-title {
-      font-family: 'Montserrat', sans-serif; font-weight: 800;
-      font-size: clamp(1.6rem, 3vw, 2.4rem); line-height: 1.2; color: var(--navy);
-      margin-bottom: 18px;
-    }
-    .section-title span { color: var(--red); }
-    .section-sub { color: var(--gray-text); font-size: 1rem; line-height: 1.7; max-width: 560px; }
-
-
-    /* ─── Navigation ────────────────────────────────────────────── */
-    .navbar {
-      background: #fff;
-      position: sticky; top: 0; z-index: 1000;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.10);
-    }
-    .nav-inner {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0 24px; max-width: 1180px; margin: 0 auto; height: 72px;
-    }
-    .nav-logo {
-      display: flex; align-items: center; gap: 12px;
-      font-family: 'Montserrat', sans-serif; font-weight: 900;
-      font-size: 1.35rem; color: var(--navy); line-height: 1;
-    }
-    .nav-logo .logo-icon {
-      width: 42px; height: 42px; background: var(--red);
-      border-radius: 4px; display: flex; align-items: center; justify-content: center;
-      color: #fff; font-size: 1.2rem;
-    }
-    .nav-logo span.sub { display: block; font-size: 0.55rem; font-weight: 600; color: var(--gray-text); letter-spacing: 0.1em; text-transform: uppercase; }
-
-    .nav-links {
-      display: flex; align-items: center; gap: 4px; list-style: none;
-    }
-    .nav-links > li { position: relative; }
-    .nav-links > li > a {
-      display: flex; align-items: center; gap: 4px;
-      padding: 10px 14px; border-radius: var(--radius);
-      font-family: 'Montserrat', sans-serif; font-weight: 600;
-      font-size: 12px; color: var(--navy);
-      transition: var(--transition); letter-spacing: 0.02em;
-    }
-    .nav-links > li > a:hover { color: var(--red); background: #f7f0f1; }
-    .nav-links > li > a i { font-size: 0.65rem; transition: transform 0.2s; }
-    .nav-links > li:hover > a i { transform: rotate(180deg); }
-
-    /* Dropdown */
-    .dropdown {
-      position: absolute; top: calc(100% + 4px); left: 50%; transform: translateX(-50%);
-      background: #fff; border-radius: var(--radius);
-      box-shadow: 0 8px 32px rgba(0,0,0,0.14);
-      min-width: 220px; opacity: 0; visibility: hidden;
-      transition: all 0.2s ease; pointer-events: none;
-      border-top: 3px solid var(--red);
-    }
-    .nav-links > li:hover .dropdown { opacity: 1; visibility: visible; pointer-events: all; transform: translateX(-50%) translateY(0); }
-    .dropdown a {
-      display: flex; align-items: center; gap: 10px;
-      padding: 12px 18px; font-family: 'Montserrat', sans-serif;
-      font-size: 0.82rem; font-weight: 600; color: var(--navy);
-      transition: var(--transition);
-    }
-    .dropdown a:hover { background: #f7f0f1; color: var(--red); padding-left: 24px; }
-    .dropdown a i { color: var(--red); width: 16px; text-align: center; }
-    .dropdown li:not(:last-child) a { border-bottom: 1px solid var(--gray-mid); }
-
-    .nav-cta { display: flex; align-items: center; gap: 10px; }
-    .nav-phone {
-      font-family: 'Montserrat', sans-serif; font-weight: 800;
-      font-size: 0.9rem; color: var(--navy);
-    }
-    .nav-phone i { color: var(--red); }
-
-    .hamburger {
-      display: none; flex-direction: column; gap: 5px;
-      background: none; border: none; cursor: pointer; padding: 4px;
-    }
-    .hamburger span { width: 26px; height: 2.5px; background: var(--navy); border-radius: 2px; transition: var(--transition); }
-
     /* ─── Hero Section ──────────────────────────────────────────── */
     .hero {
       position: relative;
@@ -151,7 +28,9 @@
     }
     .hero-bg-img {
       position: absolute; inset: 0;
-      background: url('Mason Assets/HeroImage.png') center center / cover no-repeat;
+      background-position: center center;
+      background-size: cover;
+      background-repeat: no-repeat;
       opacity: 0;
       transition: opacity 1.2s ease;
     }
@@ -410,144 +289,15 @@
     }
     .step p { font-size: 0.82rem; color: var(--gray-text); line-height: 1.6; }
 
-    /* ─── Footer ────────────────────────────────────────────────── */
-    footer { background: var(--navy); color: rgba(255,255,255,0.7); }
-    .footer-cta {
-      background: var(--red); padding: 52px 0; text-align: center;
-    }
-    .footer-cta h2 {
-      font-family: 'Montserrat', sans-serif; font-weight: 900;
-      font-size: clamp(1.6rem, 3vw, 2.4rem); color: #fff; margin-bottom: 10px;
-    }
-    .footer-cta p { color: rgba(255,255,255,0.85); margin-bottom: 28px; font-size: 1rem; }
-    .footer-cta .btn-outline { border-color: rgba(255,255,255,0.7); }
 
-    .footer-main { padding: 64px 0 40px; }
-    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 52px; }
-    .footer-logo {
-      display: flex; align-items: center; gap: 12px;
-      font-family: 'Montserrat', sans-serif; font-weight: 900;
-      font-size: 1.2rem; color: #fff; margin-bottom: 16px;
-    }
-    .footer-logo .logo-icon { width: 38px; height: 38px; background: var(--red); border-radius: 4px; display: flex; align-items: center; justify-content: center; color: #fff; }
-    .footer-about { font-size: 0.85rem; line-height: 1.7; margin-bottom: 24px; }
-    .footer-contact-list { list-style: none; font-size: 0.83rem; }
-    .footer-contact-list li { display: flex; gap: 10px; padding: 7px 0; line-height: 1.4; }
-    .footer-contact-list i { color: var(--red); width: 16px; margin-top: 2px; flex-shrink: 0; }
-    .footer-contact-list a { color: inherit; transition: color 0.2s; }
-    .footer-contact-list a:hover { color: #fff; }
-
-    .footer-col h5 {
-      font-family: 'Montserrat', sans-serif; font-weight: 800;
-      font-size: 0.8rem; color: #fff; letter-spacing: 0.1em;
-      text-transform: uppercase; margin-bottom: 20px;
-      padding-bottom: 10px; border-bottom: 2px solid rgba(255,255,255,0.08);
-    }
-    .footer-links { list-style: none; font-size: 0.83rem; }
-    .footer-links li { padding: 5px 0; }
-    .footer-links a { color: rgba(255,255,255,0.65); transition: var(--transition); display: flex; align-items: center; gap: 6px; }
-    .footer-links a::before { content: '›'; color: var(--red); }
-    .footer-links a:hover { color: #fff; padding-left: 4px; }
-
-    .footer-hours { font-size: 0.83rem; }
-    .footer-hours .day-row { display: flex; justify-content: space-between; padding: 5px 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
-    .footer-hours .day-row:last-child { border-bottom: none; }
-    .footer-hours .open { color: #4cd97b; font-weight: 600; font-family: 'Montserrat', sans-serif; font-size: 0.75rem; }
-    .footer-hours .closed { color: rgba(255,255,255,0.4); font-size: 0.75rem; }
-
-    .footer-badges {
-      border-top: 1px solid rgba(255,255,255,0.08);
-      padding-top: 40px; margin-bottom: 40px;
-    }
-    .footer-badges h5 {
-      font-family: 'Montserrat', sans-serif; font-weight: 800;
-      font-size: 0.75rem; color: rgba(255,255,255,0.4); letter-spacing: 0.15em;
-      text-transform: uppercase; text-align: center; margin-bottom: 24px;
-    }
-    .badges-grid {
-      display: flex; align-items: stretch; justify-content: center;
-      gap: 28px; flex-wrap: wrap;
-    }
-    .badge-item {
-      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 8px; padding: 14px 20px; text-align: center;
-      transition: var(--transition);
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      min-height: 100px;
-    }
-    .badge-item:hover { background: rgba(255,255,255,0.09); transform: translateY(-2px); }
-    .badge-item i { font-size: 1.6rem; color: var(--gold); display: block; margin-bottom: 6px; }
-    .badge-item span {
-      font-family: 'Montserrat', sans-serif; font-weight: 700;
-      font-size: 0.68rem; color: rgba(255,255,255,0.7);
-      display: block; text-align: center; max-width: 80px; line-height: 1.3;
-    }
-
-    .footer-social {
-      display: flex; gap: 12px;
-    }
-    .social-btn {
-      width: 38px; height: 38px; border-radius: 50%;
-      background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12);
-      display: flex; align-items: center; justify-content: center;
-      color: rgba(255,255,255,0.65); font-size: 0.9rem;
-      transition: var(--transition);
-    }
-    .social-btn:hover { background: var(--red); border-color: var(--red); color: #fff; transform: translateY(-3px); }
-
-    .footer-bottom {
-      border-top: 1px solid rgba(255,255,255,0.08);
-      padding: 22px 0; font-size: 0.78rem;
-    }
-    .footer-bottom .container {
-      display: flex; align-items: center; justify-content: space-between;
-      flex-wrap: wrap; gap: 12px;
-    }
-    .footer-bottom-links { display: flex; gap: 20px; }
-    .footer-bottom-links a { color: rgba(255,255,255,0.5); transition: color 0.2s; }
-    .footer-bottom-links a:hover { color: #fff; }
-    .footer-service-area {
-      background: rgba(255,255,255,0.04); border-top: 1px solid rgba(255,255,255,0.06);
-      padding: 14px 0; text-align: center; font-size: 0.78rem; color: rgba(255,255,255,0.4);
-    }
-    .footer-service-area i { color: var(--red); }
-
-    /* ─── Mobile Menu ───────────────────────────────────────────── */
-    .mobile-menu {
-      display: none; position: fixed; inset: 0; z-index: 2000;
-      background: var(--navy); overflow-y: auto; padding: 24px;
-    }
-    .mobile-menu.open { display: block; }
-    .mobile-menu-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px; }
-    .mobile-close { background: none; border: none; color: #fff; font-size: 1.5rem; cursor: pointer; }
-    .mobile-links { list-style: none; }
-    .mobile-links > li { border-bottom: 1px solid rgba(255,255,255,0.08); }
-    .mobile-links > li > a {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 16px 0; color: #fff; font-family: 'Montserrat', sans-serif;
-      font-weight: 700; font-size: 1rem;
-    }
-    .mobile-sub { padding-left: 16px; }
-    .mobile-sub a {
-      display: flex; align-items: center; gap: 10px;
-      padding: 12px 0; color: rgba(255,255,255,0.65);
-      font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 0.9rem;
-    }
-    .mobile-sub a i { color: var(--red); width: 16px; }
-    .mobile-cta { margin-top: 28px; display: flex; flex-direction: column; gap: 12px; }
-
-    /* ─── Responsive ────────────────────────────────────────────── */
+    /* ─── Page-Specific Responsive ──────────────────────────────── */
     @media (max-width: 1024px) {
-      .nav-links, .nav-cta .btn { display: none; }
-      .nav-phone { display: none; }
-      .hamburger { display: flex; }
       .hero-content { grid-template-columns: 1fr; }
       .hero-card { max-width: 500px; }
       .services .container { grid-template-columns: 1fr; }
       .why-grid { grid-template-columns: repeat(2, 1fr); }
       .process-steps { grid-template-columns: repeat(2, 1fr); gap: 40px; }
       .process-steps::before { display: none; }
-      .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
       .financing-inner { grid-template-columns: 1fr; }
     }
     @media (max-width: 768px) {
@@ -556,32 +306,11 @@
       .services-grid { grid-template-columns: 1fr; }
       .why-grid { grid-template-columns: 1fr; }
       .process-steps { grid-template-columns: 1fr; }
-      .footer-grid { grid-template-columns: 1fr; gap: 32px; }
-      .footer-bottom .container { flex-direction: column; text-align: center; }
-      .badges-grid { gap: 16px; }
     }
     @media (max-width: 480px) {
       .hero-btns { flex-direction: column; }
       .hero-btns .btn { width: 100%; justify-content: center; }
       .form-row { grid-template-columns: 1fr; }
-    }
-
-    /* ─── Scroll Animations ─────────────────────────────────── */
-    .anim-hidden {
-      opacity: 0;
-      transform: translateY(36px);
-      transition: opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
-                  transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-    .anim-hidden.from-left  { transform: translateX(-48px); }
-    .anim-hidden.from-right { transform: translateX(48px); }
-    .anim-hidden.from-scale { transform: scale(0.88) translateY(16px); }
-    .anim-visible {
-      opacity: 1 !important;
-      transform: none !important;
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .anim-hidden { opacity: 1; transform: none; transition: none; }
     }
   </style>
 </head>
@@ -596,7 +325,7 @@
 
     <!-- Logo -->
     <a href="#about" class="nav-logo" aria-label="SML Roofing — Home">
-      <img src="Mason Assets/masonlogo.png" alt="Mason Roofing Logo" style="height:48px;width:auto;display:block;" />
+      <img class="site-logo" src="Mason Assets/masonlogo.png" alt="Mason Roofing Logo" style="height:48px;width:auto;display:block;" />
     </a>
 
     <!-- Desktop Links -->
@@ -633,7 +362,7 @@
 <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Mobile navigation">
   <div class="mobile-menu-header">
     <a href="#about" class="nav-logo" aria-label="SML Roofing — Home">
-      <img src="Mason Assets/masonlogo.png" alt="Mason Roofing Logo" style="height:48px;width:auto;display:block;" />
+      <img class="site-logo" src="Mason Assets/masonlogo.png" alt="Mason Roofing Logo" style="height:48px;width:auto;display:block;" />
     </a>
     <button class="mobile-close" id="mobileClose" aria-label="Close menu"><i class="fa-solid fa-xmark"></i></button>
   </div>
@@ -654,7 +383,7 @@
     <li><a href="#financing">Financing</a></li>
   </ul>
   <div class="mobile-cta">
-    <a href="tel:+15405551234" class="btn btn-outline" style="justify-content:center;"><i class="fa-solid fa-phone"></i>(540) 555-1234</a>
+    <a href="tel:+15405551234" class="btn btn-outline site-phone" style="justify-content:center;"><i class="fa-solid fa-phone"></i>(540) 555-1234</a>
     <a href="#contact" class="btn btn-red" style="justify-content:center;">Book Free Inspection</a>
   </div>
 </div>
@@ -671,14 +400,14 @@
   <div class="hero-content">
     <!-- Left: Copy -->
     <div>
-      <div class="hero-badge">
+      <div class="hero-badge" id="hero-badge">
         GAF Master Elite Contractor 2025 &nbsp;•&nbsp; A+ BBB Rated
       </div>
       <h1 id="hero-heading">
         Roofing Solutions
         <span>That Last a Lifetime</span>
       </h1>
-      <p class="hero-sub">
+      <p class="hero-sub" id="hero-sub">
         Protect what matters most, with a roof built to last. Expert roofing, siding, and gutter services for homeowners across Smith Mountain Lake and beyond.
       </p>
       <div class="hero-btns">
@@ -686,29 +415,12 @@
           <i class="fa-solid fa-calendar-check"></i>
           Book Your Free Inspection
         </a>
-        <a href="tel:+15405551234" class="btn btn-outline" style="font-size:0.88rem;padding:16px 30px;flex:1;justify-content:center;">
+        <a href="tel:+15405551234" class="btn btn-outline site-phone" style="font-size:0.88rem;padding:16px 30px;flex:1;justify-content:center;">
           <i class="fa-solid fa-phone"></i>
           (540) 555-1234
         </a>
       </div>
-      <div class="hero-stats">
-        <div>
-          <div class="hero-stat-num">500<span>+</span></div>
-          <div class="hero-stat-label">Roofs Installed</div>
-        </div>
-        <div>
-          <div class="hero-stat-num">15<span>+</span></div>
-          <div class="hero-stat-label">Years in Business</div>
-        </div>
-        <div>
-          <div class="hero-stat-num">5<span>★</span></div>
-          <div class="hero-stat-label">Average Rating</div>
-        </div>
-        <div>
-          <div class="hero-stat-num">100<span>%</span></div>
-          <div class="hero-stat-label">Satisfaction Guaranteed</div>
-        </div>
-      </div>
+      <div class="hero-stats" id="hero-stats"></div>
     </div>
 
     <!-- Right: Quick Form -->
@@ -809,19 +521,12 @@
           Affordable Payments,<br/><span>Zero Barriers</span>
         </h2>
         <p class="financing-sub">Don't let budget concerns delay the protection your home needs. Our flexible financing makes quality roofing accessible to every homeowner.</p>
-        <ul class="financing-points">
-          <li><i class="fa-solid fa-circle-check"></i><span><strong style="color:#fff;">0% Interest Financing</strong> — Keep more money in your pocket</span></li>
-          <li><i class="fa-solid fa-circle-check"></i><span><strong style="color:#fff;">$0 Down</strong> — Start your project with no upfront cost</span></li>
-          <li><i class="fa-solid fa-circle-check"></i><span><strong style="color:#fff;">Affordable Monthly Payments</strong> — Tailored to fit your budget</span></li>
-          <li><i class="fa-solid fa-circle-check"></i><span><strong style="color:#fff;">No Collateral Required</strong> — Unsecured financing options available</span></li>
-          <li><i class="fa-solid fa-circle-check"></i><span><strong style="color:#fff;">Funds in 1–5 Business Days</strong> — Get started fast</span></li>
-          <li><i class="fa-solid fa-circle-check"></i><span><strong style="color:#fff;">Soft Credit Pull</strong> — Checking your rate won't affect your score</span></li>
-        </ul>
+        <ul class="financing-points" id="financing-points"></ul>
         <a href="#contact" class="btn btn-red"><i class="fa-solid fa-bolt"></i>Get Approved in 60 Seconds</a>
       </div>
       <!-- Right -->
       <div class="financing-right">
-        <img src="Mason Assets/RoofingImageRate.png" alt="Professional roofing installation" class="financing-img" />
+        <img id="financing-img" src="Mason Assets/RoofingImageRate.png" alt="Professional roofing installation" class="financing-img" />
         <div class="financing-pills">
           <div class="pill"><i class="fa-solid fa-dollar-sign"></i>$0 Down</div>
           <div class="pill"><i class="fa-solid fa-bolt"></i>60-Second Approval</div>
@@ -848,28 +553,7 @@
       <h2 class="section-title" id="whyus-heading">The SML Roofing <span>Difference</span></h2>
       <p class="section-sub">We're your neighbors — and we treat every roof like it's our own.</p>
     </div>
-    <div class="why-grid">
-      <div class="why-card">
-        <div class="why-icon"><i class="fa-solid fa-award"></i></div>
-        <h4>GAF Master Elite Certified</h4>
-        <p>Only the top 3% of roofing contractors nationwide earn this designation — guaranteeing superior installation and enhanced warranty protection.</p>
-      </div>
-      <div class="why-card">
-        <div class="why-icon"><i class="fa-solid fa-handshake"></i></div>
-        <h4>Honest, Transparent Pricing</h4>
-        <p>No hidden fees, no high-pressure sales tactics. We provide detailed written estimates and walk you through every line item.</p>
-      </div>
-      <div class="why-card">
-        <div class="why-icon"><i class="fa-solid fa-shield-halved"></i></div>
-        <h4>Lifetime Workmanship Warranty</h4>
-        <p>We stand behind every nail we drive. Our workmanship warranty gives you lasting peace of mind long after we've left.</p>
-      </div>
-      <div class="why-card">
-        <div class="why-icon"><i class="fa-solid fa-house-chimney-user"></i></div>
-        <h4>Local Community Roots</h4>
-        <p>Based right here in Wirtz, VA — we protect the homes of our friends, family, and neighbors across Smith Mountain Lake.</p>
-      </div>
-    </div>
+    <div class="why-grid" id="why-grid"></div>
   </div>
 </section>
 
@@ -922,7 +606,7 @@
         <a href="#contact" class="btn btn-outline" style="font-size:0.9rem;padding:15px 32px;width:360px;justify-content:center;">
           <i class="fa-solid fa-calendar-check"></i>Book Your Free Inspection
         </a>
-        <a href="tel:+15405551234" class="btn" style="background:#fff;color:var(--red);border-color:#fff;font-size:0.9rem;padding:15px 32px;width:360px;justify-content:center;">
+        <a href="tel:+15405551234" class="btn site-phone" style="background:#fff;color:var(--red);border-color:#fff;font-size:0.9rem;padding:15px 32px;width:360px;justify-content:center;">
           <i class="fa-solid fa-phone"></i>(540) 555-1234
         </a>
       </div>
@@ -937,17 +621,17 @@
         <!-- About Column -->
         <div>
           <div class="footer-logo">
-            <img src="Mason Assets/masonlogo.png" alt="Mason Roofing Logo" style="height:48px;width:auto;display:block;margin-bottom:12px;" />
+            <img class="site-logo" src="Mason Assets/masonlogo.png" alt="Mason Roofing Logo" style="height:48px;width:auto;display:block;margin-bottom:12px;" />
           </div>
-          <p class="footer-about">Serving Smith Mountain Lake, Roanoke, Lynchburg &amp; surrounding communities with expert roofing, siding, and gutter solutions. Locally owned, community-driven, and built on trust.</p>
-          <ul class="footer-contact-list">
+          <p class="footer-about" id="footer-about">Serving Smith Mountain Lake, Roanoke, Lynchburg &amp; surrounding communities with expert roofing, siding, and gutter solutions. Locally owned, community-driven, and built on trust.</p>
+          <ul class="footer-contact-list" id="footer-contact-list">
             <li><i class="fa-solid fa-location-dot"></i><span>Wirtz, VA 24184</span></li>
             <li><i class="fa-solid fa-phone"></i><a href="tel:+15405551234">(540) 555-1234</a></li>
             <li><i class="fa-solid fa-envelope"></i><a href="mailto:info@smlroofing.com">info@smlroofing.com</a></li>
             <li><i class="fa-solid fa-id-card"></i><span>VA Contractor License #<strong style="color:rgba(255,255,255,0.85);">2705-XXXXXX</strong></span></li>
           </ul>
           <br/>
-          <div class="footer-social" aria-label="Social media links">
+          <div class="footer-social" id="footer-social" aria-label="Social media links">
             <a href="https://www.linkedin.com/company/mason-roofingva" class="social-btn" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin-in"></i></a>
             <a href="https://www.facebook.com/p/Mason-Company-Roofing-100051569756166/" class="social-btn" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook-f"></i></a>
             <a href="https://www.youtube.com/@masoncompany_roofing" class="social-btn" aria-label="YouTube" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-youtube"></i></a>
@@ -985,7 +669,7 @@
         <!-- Hours Column -->
         <div class="footer-col">
           <h5>Business Hours</h5>
-          <div class="footer-hours">
+          <div class="footer-hours" id="footer-hours">
             <div class="day-row"><span>Monday</span><span class="open">8am – 6pm</span></div>
             <div class="day-row"><span>Tuesday</span><span class="open">8am – 6pm</span></div>
             <div class="day-row"><span>Wednesday</span><span class="open">8am – 6pm</span></div>
@@ -1004,34 +688,13 @@
       <!-- Trust Badges -->
       <div class="footer-badges">
         <h5>Accreditations &amp; Memberships</h5>
-        <div class="badges-grid">
-          <div class="badge-item">
-            <i class="fa-solid fa-building-columns"></i>
-            <span>Better Business Bureau A+</span>
-          </div>
-          <div class="badge-item">
-            <i class="fa-solid fa-house-circle-check"></i>
-            <span>HomeAdvisor Screened &amp; Approved</span>
-          </div>
-          <div class="badge-item">
-            <i class="fa-solid fa-award"></i>
-            <span>GAF Master Elite Contractor 2025</span>
-          </div>
-          <div class="badge-item">
-            <i class="fa-solid fa-handshake"></i>
-            <span>Smith Mountain Lake Chamber of Commerce</span>
-          </div>
-          <div class="badge-item">
-            <i class="fa-solid fa-shield-halved"></i>
-            <span>Licensed &amp; Fully Insured</span>
-          </div>
-        </div>
+        <div class="badges-grid" id="badges-grid"></div>
       </div>
     </div>
   </div>
 
   <!-- Service Area -->
-  <div class="footer-service-area">
+  <div class="footer-service-area" id="footer-service-area">
     <i class="fa-solid fa-location-dot"></i>
     Proudly serving <strong style="color:rgba(255,255,255,0.65);">Smith Mountain Lake, Roanoke, Lynchburg</strong> &amp; surrounding areas in Virginia
   </div>
@@ -1039,7 +702,7 @@
   <!-- Bottom Bar -->
   <div class="footer-bottom">
     <div class="container">
-      <span>&copy; 2025 SML Roofing. All rights reserved.</span>
+      <span id="footer-copyright">&copy; 2025 SML Roofing. All rights reserved.</span>
       <div class="footer-bottom-links">
         <a href="#">Privacy Policy</a>
         <a href="#">Accessibility Statement</a>
@@ -1053,150 +716,132 @@
      JAVASCRIPT
 ══════════════════════════════════════════════════ -->
 <script>
-  // Hero background fade-in
-  (function () {
-    const bg = document.getElementById('heroBg');
-    const img = new Image();
-    img.onload = () => bg.classList.add('loaded');
-    img.src = 'Mason Assets/HeroImage.png';
-  })();
+  // Runs after site.config.js DOMContentLoaded (which populates dynamic content first)
+  document.addEventListener('DOMContentLoaded', () => {
 
-  // Mobile menu toggle
-  const hamburger = document.getElementById('hamburgerBtn');
-  const mobileMenu = document.getElementById('mobileMenu');
-  const mobileClose = document.getElementById('mobileClose');
+    // Mobile menu toggle
+    const hamburger = document.getElementById('hamburgerBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileClose = document.getElementById('mobileClose');
 
-  hamburger.addEventListener('click', () => {
-    mobileMenu.classList.add('open');
-    hamburger.setAttribute('aria-expanded', 'true');
-    document.body.style.overflow = 'hidden';
-  });
-
-  function closeMobileMenu() {
-    mobileMenu.classList.remove('open');
-    hamburger.setAttribute('aria-expanded', 'false');
-    document.body.style.overflow = '';
-  }
-
-  mobileClose.addEventListener('click', closeMobileMenu);
-
-  // Close on link click
-  mobileMenu.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', closeMobileMenu);
-  });
-
-  // Close on Escape
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') closeMobileMenu();
-  });
-
-  // Sticky nav shadow on scroll
-  const navbar = document.querySelector('.navbar');
-  window.addEventListener('scroll', () => {
-    navbar.style.boxShadow = window.scrollY > 10
-      ? '0 4px 20px rgba(0,0,0,0.15)'
-      : '0 2px 12px rgba(0,0,0,0.10)';
-  });
-
-  // Book Inspection — scroll to top and highlight form
-  const heroCard = document.getElementById('contact');
-  document.querySelectorAll('a.btn[href="#contact"]').forEach(btn => {
-    btn.addEventListener('click', e => {
-      e.preventDefault();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      setTimeout(() => {
-        heroCard.classList.remove('highlight');
-        void heroCard.offsetWidth; // reflow to restart animation
-        heroCard.classList.add('highlight');
-      }, 400);
-    });
-  });
-
-  // ─── Scroll Animations ───────────────────────────────────
-  (function () {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-    // Groups: each entry is [selector, extraClass, stagger(ms)]
-    const groups = [
-      ['.trust-item',                                         '',           80],
-      ['.services .section-label',                            '',            0],
-      ['.services .section-title',                            '',           80],
-      ['.services .section-sub',                              '',          160],
-      ['.services .btn-navy',                                 '',          220],
-      ['.service-card',                                       'from-scale', 90],
-      ['.financing-left .section-label',                      'from-left',   0],
-      ['.financing-left .section-title',                      'from-left',  80],
-      ['.financing-sub',                                      'from-left', 140],
-      ['.financing-points li',                                'from-left',  70],
-      ['.financing-left .btn',                                'from-left', 440],
-      ['.financing-right',                                    'from-right',  0],
-      ['.why-us .section-label, .why-us .section-title, .why-us .section-sub', '', 80],
-      ['.why-card',                                           'from-scale', 90],
-      ['.process .section-label, .process .section-title, .process .section-sub', '', 80],
-      ['.step',                                               '',          110],
-      ['.footer-cta h2',                                      '',            0],
-      ['.footer-cta p',                                       '',           80],
-      ['.footer-cta > .container > div',                      '',          140],
-      ['.badge-item',                                         'from-scale', 70],
-      ['.footer-col h5, .footer-col ul, .footer-hours',       '',          100],
-      ['.footer-col .btn-red',                                '',            0, 500],
-    ];
-
-    groups.forEach(([sel, extraCls, staggerMs, baseDelay = 0]) => {
-      document.querySelectorAll(sel).forEach((el, i) => {
-        el.classList.add('anim-hidden');
-        if (extraCls) el.classList.add(extraCls);
-        el.style.transitionDelay = (baseDelay + i * staggerMs) + 'ms';
-      });
+    hamburger.addEventListener('click', () => {
+      mobileMenu.classList.add('open');
+      hamburger.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
     });
 
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add('anim-visible');
-        io.unobserve(entry.target);
-      });
-    }, { threshold: 0.15, rootMargin: '0px 0px -120px 0px' });
-
-    document.querySelectorAll('.anim-hidden').forEach(el => io.observe(el));
-
-    // ── Step-num fill animation ───────────────────────────
-    const stepNums = document.querySelectorAll('.step-num');
-    const stepIo = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        const idx = Array.from(stepNums).indexOf(entry.target);
-        setTimeout(() => entry.target.classList.add('step-filled'), idx * 3500);
-        stepIo.unobserve(entry.target);
-      });
-    }, { threshold: 0.5, rootMargin: '0px 0px -100px 0px' });
-    stepNums.forEach(el => stepIo.observe(el));
-
-    // ── Hero stat counters ────────────────────────────────
-    const statDefs = [
-      { idx: 0, end: 500 },
-      { idx: 1, end: 15  },
-      { idx: 2, end: 5   },
-      { idx: 3, end: 100 },
-    ];
-    const statEls = document.querySelectorAll('.hero-stat-num');
-    function runCounter(el, end, duration) {
-      const textNode = el.childNodes[0];
-      if (!textNode) return;
-      const t0 = performance.now();
-      (function tick(now) {
-        const p = Math.min((now - t0) / duration, 1);
-        const ease = 1 - Math.pow(1 - p, 3);
-        textNode.textContent = Math.round(ease * end);
-        if (p < 1) requestAnimationFrame(tick);
-      })(t0);
+    function closeMobileMenu() {
+      mobileMenu.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
     }
-    setTimeout(() => {
-      statDefs.forEach(({ idx, end }) => {
-        if (statEls[idx]) runCounter(statEls[idx], end, 1600);
+
+    mobileClose.addEventListener('click', closeMobileMenu);
+    mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMobileMenu));
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMobileMenu(); });
+
+    // Sticky nav shadow on scroll
+    const navbar = document.querySelector('.navbar');
+    window.addEventListener('scroll', () => {
+      navbar.style.boxShadow = window.scrollY > 10
+        ? '0 4px 20px rgba(0,0,0,0.15)'
+        : '0 2px 12px rgba(0,0,0,0.10)';
+    });
+
+    // Book Inspection — scroll to top and highlight form
+    const heroCard = document.getElementById('contact');
+    document.querySelectorAll('a.btn[href="#contact"]').forEach(btn => {
+      btn.addEventListener('click', e => {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        setTimeout(() => {
+          heroCard.classList.remove('highlight');
+          void heroCard.offsetWidth;
+          heroCard.classList.add('highlight');
+        }, 400);
       });
-    }, 600);
-  })();
+    });
+
+    // ─── Scroll Animations (runs after site.config.js renders dynamic content)
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+
+      const groups = [
+        ['.trust-item',                                         '',           80],
+        ['.services .section-label',                            '',            0],
+        ['.services .section-title',                            '',           80],
+        ['.services .section-sub',                              '',          160],
+        ['.services .btn-navy',                                 '',          220],
+        ['.service-card',                                       'from-scale', 90],
+        ['.financing-left .section-label',                      'from-left',   0],
+        ['.financing-left .section-title',                      'from-left',  80],
+        ['.financing-sub',                                      'from-left', 140],
+        ['.financing-points li',                                'from-left',  70],
+        ['.financing-left .btn',                                'from-left', 440],
+        ['.financing-right',                                    'from-right',  0],
+        ['.why-us .section-label, .why-us .section-title, .why-us .section-sub', '', 80],
+        ['.why-card',                                           'from-scale', 90],
+        ['.process .section-label, .process .section-title, .process .section-sub', '', 80],
+        ['.step',                                               '',          110],
+        ['.footer-cta h2',                                      '',            0],
+        ['.footer-cta p',                                       '',           80],
+        ['.footer-cta > .container > div',                      '',          140],
+        ['.badge-item',                                         'from-scale', 70],
+        ['.footer-col h5, .footer-col ul, .footer-hours',       '',          100],
+        ['.footer-col .btn-red',                                '',            0, 500],
+      ];
+
+      groups.forEach(([sel, extraCls, staggerMs, baseDelay = 0]) => {
+        document.querySelectorAll(sel).forEach((el, i) => {
+          el.classList.add('anim-hidden');
+          if (extraCls) el.classList.add(extraCls);
+          el.style.transitionDelay = (baseDelay + i * staggerMs) + 'ms';
+        });
+      });
+
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('anim-visible');
+          io.unobserve(entry.target);
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -120px 0px' });
+
+      document.querySelectorAll('.anim-hidden').forEach(el => io.observe(el));
+
+      // ── Step-num fill animation
+      const stepNums = document.querySelectorAll('.step-num');
+      const stepIo = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          const idx = Array.from(stepNums).indexOf(entry.target);
+          setTimeout(() => entry.target.classList.add('step-filled'), idx * 3500);
+          stepIo.unobserve(entry.target);
+        });
+      }, { threshold: 0.5, rootMargin: '0px 0px -100px 0px' });
+      stepNums.forEach(el => stepIo.observe(el));
+
+      // ── Hero stat counters (values come from SITE.hero.stats in site.config.js)
+      const statDefs = SITE.hero.stats.map((s, idx) => ({ idx, end: s.value }));
+      const statEls = document.querySelectorAll('.hero-stat-num');
+      function runCounter(el, end, duration) {
+        const textNode = el.childNodes[0];
+        if (!textNode) return;
+        const t0 = performance.now();
+        (function tick(now) {
+          const p = Math.min((now - t0) / duration, 1);
+          const ease = 1 - Math.pow(1 - p, 3);
+          textNode.textContent = Math.round(ease * end);
+          if (p < 1) requestAnimationFrame(tick);
+        })(t0);
+      }
+      setTimeout(() => {
+        statDefs.forEach(({ idx, end }) => {
+          if (statEls[idx]) runCounter(statEls[idx], end, 1600);
+        });
+      }, 600);
+    }
+
+  });
 </script>
 
 </body>

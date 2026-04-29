@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -11,55 +11,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
+  <!-- Shared styles & config — edit site.config.js to update colors, logo, content, awards -->
+  <link rel="stylesheet" href="styles.css" />
+  <script src="site.config.js"></script>
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Open Sans', sans-serif; color: #1a1a1a; background: #fff; overflow-x: hidden; }
-    img { max-width: 100%; display: block; }
-    a { text-decoration: none; color: inherit; }
-
-    :root {
-      --red:       #c8102e;
-      --red-dark:  #a50d24;
-      --navy:      #0d1b2a;
-      --navy-mid:  #162233;
-      --gold:      #e8a020;
-      --gray-bg:   #f5f6f8;
-      --gray-mid:  #e2e4e8;
-      --gray-text: #555;
-      --radius:    6px;
-      --shadow:    0 4px 24px rgba(0,0,0,0.08);
-      --transition: all 0.2s ease;
-    }
-
-    .container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
-    .container--wide { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
-
-    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 26px; border-radius: var(--radius); font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.85rem; letter-spacing: 0.04em; text-transform: uppercase; cursor: pointer; transition: var(--transition); border: 2px solid transparent; white-space: nowrap; }
-    .btn-red { background: var(--red); color: #fff; border-color: var(--red); }
-    .btn-red:hover { background: var(--red-dark); border-color: var(--red-dark); }
-    .btn-outline-navy { background: transparent; color: var(--navy); border-color: var(--navy); }
-    .btn-outline-navy:hover { background: var(--navy); color: #fff; }
-
-    /* ─── Nav ─────────────────────────────────────────────── */
-    .navbar { background: #fff; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 12px rgba(0,0,0,0.10); }
-    .nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 0 24px; max-width: 1180px; margin: 0 auto; height: 72px; }
-    .nav-links { display: flex; align-items: center; gap: 4px; list-style: none; }
-    .nav-links > li { position: relative; }
-    .nav-links > li > a { display: flex; align-items: center; gap: 4px; padding: 10px 14px; border-radius: var(--radius); font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 12px; color: var(--navy); transition: var(--transition); }
-    .nav-links > li > a:hover { color: var(--red); background: #f7f0f1; }
-    .nav-links > li > a i { font-size: 0.6rem; transition: transform 0.2s; }
-    .nav-links > li:hover > a i { transform: rotate(180deg); }
-    .dropdown { position: absolute; top: calc(100% + 4px); left: 50%; transform: translateX(-50%); background: #fff; border-radius: var(--radius); box-shadow: 0 8px 32px rgba(0,0,0,0.14); min-width: 220px; opacity: 0; visibility: hidden; transition: all 0.2s ease; pointer-events: none; border-top: 3px solid var(--red); }
-    .nav-links > li:hover .dropdown { opacity: 1; visibility: visible; pointer-events: all; }
-    .dropdown a { display: flex; align-items: center; gap: 10px; padding: 12px 18px; font-family: 'Montserrat', sans-serif; font-size: 0.82rem; font-weight: 600; color: var(--navy); transition: var(--transition); }
-    .dropdown a:hover { background: #f7f0f1; color: var(--red); padding-left: 24px; }
-    .dropdown a i { color: var(--red); width: 16px; }
-    .dropdown li:not(:last-child) a { border-bottom: 1px solid var(--gray-mid); }
-    .nav-cta { display: flex; align-items: center; gap: 10px; }
-    .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
-    .hamburger span { width: 26px; height: 2.5px; background: var(--navy); border-radius: 2px; }
-
     /* ─── Page Header ─────────────────────────────────────── */
     .page-header { position: relative; overflow: hidden; padding: 80px 0 72px; background: url('Mason Assets/HeroImage.png') center center / cover no-repeat; }
     .page-header::before { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(13,27,42,0.94) 40%, rgba(13,27,42,0.65) 100%); }
@@ -179,6 +134,13 @@
       .cta-btns { flex-direction: column; align-items: stretch; }
       .cta-btns .btn, .cta-btns .btn-outline-white { justify-content: center; }
     }
+
+    /* ─── Page-Specific Responsive ──────────────────────────────── */
+    @media (max-width: 768px) {
+      .two-col { grid-template-columns: 1fr; gap: 36px; }
+      .cta-btns { flex-direction: column; align-items: stretch; }
+      .cta-btns .btn, .cta-btns .btn-outline-white { justify-content: center; }
+    }
   </style>
 </head>
 <body>
@@ -187,7 +149,7 @@
 <nav class="navbar" role="navigation" aria-label="Main navigation">
   <div class="nav-inner">
     <a href="roofing-landing.html">
-      <img src="Mason Assets/masonlogo.png" alt="Mason Company" style="height:46px;width:auto;display:block;" />
+      <img class="site-logo" src="Mason Assets/masonlogo.png" alt="Mason Company" style="height:46px;width:auto;display:block;" />
     </a>
     <ul class="nav-links" role="list">
       <li><a href="roofing-landing.html">Home</a></li>
@@ -215,7 +177,7 @@
 
 <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true">
   <div class="mobile-menu-header">
-    <img src="Mason Assets/masonlogo.png" alt="Mason Company" style="height:42px;width:auto;" />
+    <img class="site-logo" src="Mason Assets/masonlogo.png" alt="Mason Company" style="height:42px;width:auto;" />
     <button class="mobile-close" id="mobileClose"><i class="fa-solid fa-xmark"></i></button>
   </div>
   <ul class="mobile-links">
@@ -234,7 +196,7 @@
     <li><a href="roofing-landing.html#contact">Contact</a></li>
   </ul>
   <div class="mobile-cta">
-    <a href="tel:+15402974200" class="btn btn-outline-navy" style="justify-content:center;border-color:rgba(255,255,255,0.3);color:#fff;"><i class="fa-solid fa-phone"></i>(540) 297-4200</a>
+    <a href="tel:+15402974200" class="btn btn-outline-navy site-phone" style="justify-content:center;border-color:rgba(255,255,255,0.3);color:#fff;"><i class="fa-solid fa-phone"></i>(540) 297-4200</a>
     <a href="roofing-landing.html#contact" class="btn btn-red" style="justify-content:center;">Get Free Quote</a>
   </div>
 </div>
@@ -356,7 +318,7 @@
     <p>Get your free, no-obligation inspection and estimate. We're often available the same week.</p>
     <div class="cta-btns">
       <a href="roofing-landing.html#contact" class="btn-outline-white"><i class="fa-solid fa-calendar-check"></i>Book Your Free Inspection</a>
-      <a href="tel:+15402974200" class="btn" style="background:#fff;color:var(--red);border:2px solid #fff;font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.85rem;padding:13px 26px;border-radius:6px;display:inline-flex;align-items:center;gap:8px;text-transform:uppercase;letter-spacing:0.04em;"><i class="fa-solid fa-phone"></i>(540) 297-4200</a>
+      <a href="tel:+15405551234" class="btn site-phone" style="background:#fff;color:var(--red);border:2px solid #fff;font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.85rem;padding:13px 26px;border-radius:6px;display:inline-flex;align-items:center;gap:8px;text-transform:uppercase;letter-spacing:0.04em;"><i class="fa-solid fa-phone"></i>(540) 297-4200</a>
     </div>
   </div>
 </div>
@@ -367,15 +329,15 @@
     <div class="container--wide">
       <div class="footer-grid">
         <div>
-          <img src="Mason Assets/masonlogo.png" alt="Mason Company" style="height:44px;width:auto;margin-bottom:16px;" />
-          <p class="footer-about">Serving Smith Mountain Lake, Roanoke, Lynchburg &amp; surrounding communities with expert roofing, siding, and gutter solutions since the 80s.</p>
-          <ul class="footer-contact-list">
+          <img class="site-logo" src="Mason Assets/masonlogo.png" alt="Mason Company" style="height:44px;width:auto;margin-bottom:16px;" />
+          <p class="footer-about" id="footer-about">Serving Smith Mountain Lake, Roanoke, Lynchburg &amp; surrounding communities with expert roofing, siding, and gutter solutions since the 80s.</p>
+          <ul class="footer-contact-list" id="footer-contact-list">
             <li><i class="fa-solid fa-location-dot"></i><span>1627 Scruggs Road, Wirtz, VA 24184</span></li>
             <li><i class="fa-solid fa-phone"></i><a href="tel:+15402974200">(540) 297-4200</a></li>
             <li><i class="fa-solid fa-envelope"></i><a href="mailto:marc.mason@masoncompanyva.com">marc.mason@masoncompanyva.com</a></li>
             <li><i class="fa-solid fa-id-card"></i><span>VA License #2705154500</span></li>
           </ul>
-          <div class="footer-social">
+          <div class="footer-social" id="footer-social" aria-label="Social media links">
             <a href="https://www.linkedin.com/company/mason-roofingva" class="social-btn" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin-in"></i></a>
             <a href="https://www.facebook.com/p/Mason-Company-Roofing-100051569756166/" class="social-btn" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook-f"></i></a>
             <a href="https://www.youtube.com/@masoncompany_roofing" class="social-btn" aria-label="YouTube" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-youtube"></i></a>
@@ -402,7 +364,7 @@
         </div>
         <div class="footer-col">
           <h5>Hours</h5>
-          <div class="footer-hours">
+          <div class="footer-hours" id="footer-hours">
             <div class="day-row"><span>Mon–Fri</span><span class="open">8am – 6pm</span></div>
             <div class="day-row"><span>Saturday</span><span class="open">8am – 6pm</span></div>
             <div class="day-row"><span>Sunday</span><span class="closed">Closed</span></div>
@@ -411,13 +373,13 @@
       </div>
     </div>
   </div>
-  <div class="footer-service-area">
+  <div class="footer-service-area" id="footer-service-area">
     <i class="fa-solid fa-location-dot"></i>
     Serving <strong style="color:rgba(255,255,255,0.55);">Smith Mountain Lake, Roanoke, Lynchburg</strong> &amp; surrounding Virginia communities
   </div>
   <div class="footer-bottom">
     <div class="container--wide">
-      <span>&copy; 2025 Mason Company. All rights reserved.</span>
+      <span id="footer-copyright"></span>
       <div class="footer-bottom-links">
         <a href="#">Privacy Policy</a>
         <a href="#">Sitemap</a>
