@@ -77,14 +77,14 @@ a { text-decoration: none; color: inherit; }
   padding: 0 24px; max-width: 1180px; margin: 0 auto; height: 72px;
 }
 .nav-logo {
-  display: flex; align-items: center; gap: 12px;
+  display: flex; align-items: center; gap: 10px;
   font-family: 'Montserrat', sans-serif; font-weight: 900;
-  font-size: 1.35rem; color: var(--navy); line-height: 1;
+  font-size: 1.1rem; color: var(--navy); line-height: 1;
 }
 .nav-logo .logo-icon {
-  width: 42px; height: 42px; background: var(--green);
+  width: 34px; height: 34px; background: var(--green);
   border-radius: 4px; display: flex; align-items: center; justify-content: center;
-  color: #fff; font-size: 1.2rem;
+  color: #fff; font-size: 1rem;
 }
 .nav-logo span.sub {
   display: block; font-size: 0.55rem; font-weight: 600;
@@ -124,7 +124,7 @@ a { text-decoration: none; color: inherit; }
 .dropdown li:not(:last-child) a { border-bottom: 1px solid var(--gray-mid); }
 
 .nav-cta { display: flex; align-items: center; gap: 10px; }
-.nav-phone { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 0.9rem; color: var(--navy); }
+.nav-phone { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 0.75rem; color: var(--navy); }
 .nav-phone i { color: var(--green); }
 
 .hamburger {
@@ -500,7 +500,10 @@ footer { background: var(--navy); color: rgba(255,255,255,0.7); }
   .footer-bottom .container--wide { flex-direction: column; text-align: center; }
   .badges-grid { gap: 16px; }
   .hero h1 { font-size: 2.2rem; }
-  .hero-stats { gap: 20px; flex-wrap: wrap; }
+  .hero-stats { gap: 20px; flex-wrap: wrap; justify-content: center; }
+  .hero-stats > div { text-align: center; }
+  .hero-stat-num { font-size: 1.6rem; }
+  .trust-bar { display: none; }
   .services-grid { grid-template-columns: 1fr; }
   .why-grid { grid-template-columns: 1fr; }
   .process-steps { grid-template-columns: 1fr; }
