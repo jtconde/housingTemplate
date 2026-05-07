@@ -35,7 +35,7 @@ const SITE = {
     serviceArea: 'Smith Mountain Lake, Roanoke, Lynchburg',
     about:       'Serving Smith Mountain Lake, Roanoke, Lynchburg & surrounding communities with expert roofing, siding, and gutter solutions. Locally owned, community-driven, and built on trust.',
     copyright:   '2025 SML Roofing',
-    logo:        'Mason Assets/masonlogo.png',
+    logo:        'Mason Assets/logo.svg',
     logoAlt:     'SML Roofing Logo',
   },
 
