@@ -514,3 +514,77 @@ footer { background: var(--navy); color: rgba(255,255,255,0.7); }
   .hero-btns .btn { width: 100%; justify-content: center; }
   .form-row { grid-template-columns: 1fr; }
 }
+
+/* ─── Service Modals ──────────────────────────────────────────── */
+.service-card button.learn-more {
+  cursor: pointer; background: none; border: none; padding: 0; font: inherit;
+}
+.service-card button.learn-more::after {
+  content: ''; position: absolute; inset: 0;
+}
+.service-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(0,0,0,0.55);
+  padding: 24px;
+  overflow-y: auto;
+  align-items: flex-start;
+  justify-content: center;
+}
+.service-modal.is-open { display: flex; }
+.service-modal-dialog {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  max-width: 860px;
+  width: 100%;
+  margin: auto;
+  display: flex;
+  position: relative;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.28);
+  animation: modalIn 0.22s ease;
+}
+@keyframes modalIn {
+  from { opacity: 0; transform: translateY(18px) scale(0.98); }
+  to   { opacity: 1; transform: translateY(0)    scale(1); }
+}
+.service-modal-close {
+  position: absolute;
+  top: 14px; right: 14px; z-index: 10;
+  background: rgba(0,0,0,0.45); color: #fff;
+  border: none; width: 38px; height: 38px; border-radius: 50%;
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  font-size: 1rem; transition: background 0.2s;
+}
+.service-modal-close:hover { background: rgba(0,0,0,0.7); }
+.service-modal-img { width: 42%; flex-shrink: 0; min-height: 380px; }
+.service-modal-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.service-modal-body {
+  padding: 40px 36px 36px;
+  overflow-y: auto;
+  display: flex; flex-direction: column; gap: 14px; flex: 1;
+}
+.service-modal-body h3 {
+  font-family: 'Montserrat', sans-serif; font-weight: 800;
+  font-size: 1.35rem; line-height: 1.25; color: var(--navy);
+}
+.service-modal-body > p {
+  color: #444; line-height: 1.75; font-size: 0.92rem;
+}
+.modal-feature-label {
+  font-family: 'Montserrat', sans-serif; font-weight: 700;
+  font-size: 0.75rem; color: var(--navy); letter-spacing: 0.06em;
+  text-transform: uppercase; margin-top: 2px;
+}
+.modal-features { list-style: none; display: flex; flex-direction: column; gap: 7px; margin: 0; padding: 0; }
+.modal-features li { font-size: 0.88rem; color: #333; line-height: 1.55; }
+.service-modal-cta { margin-top: 6px; }
+@media (max-width: 640px) {
+  .service-modal { padding: 16px; }
+  .service-modal-dialog { flex-direction: column; }
+  .service-modal-img { width: 100%; min-height: 200px; }
+  .service-modal-body { padding: 28px 22px 24px; }
+  .service-modal-body h3 { font-size: 1.15rem; }
+}

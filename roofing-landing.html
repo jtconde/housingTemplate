@@ -206,42 +206,42 @@
         <div class="service-icon"><i class="fa-solid fa-hammer"></i></div>
         <h4>Deck Building</h4>
         <p>Custom deck construction using pressure-treated lumber, composite, and Trex materials. Built to last with expert craftsmanship.</p>
-        <a href="#contact" class="learn-more">Get Estimate <i class="fa-solid fa-arrow-right"></i></a>
+        <button class="learn-more" data-modal="modal-deck-building">See More <i class="fa-solid fa-arrow-right"></i></button>
       </div>
 
       <div class="service-card">
         <div class="service-icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
         <h4>Deck Repair</h4>
         <p>Restore your deck's structural integrity. We address rot, decay, warping, and loose fasteners to extend your deck's life.</p>
-        <a href="#contact" class="learn-more">Get Estimate <i class="fa-solid fa-arrow-right"></i></a>
+        <button class="learn-more" data-modal="modal-deck-repair">See More <i class="fa-solid fa-arrow-right"></i></button>
       </div>
 
       <div class="service-card" id="lawn">
         <div class="service-icon"><i class="fa-solid fa-leaf"></i></div>
         <h4>Mulch Bed Installation</h4>
         <p>Professional mulch bed installation that improves soil stability, moisture retention, and weed control while enhancing your landscape.</p>
-        <a href="#contact" class="learn-more">Get Estimate <i class="fa-solid fa-arrow-right"></i></a>
+        <button class="learn-more" data-modal="modal-mulch-bed">See More <i class="fa-solid fa-arrow-right"></i></button>
       </div>
 
       <div class="service-card">
         <div class="service-icon"><i class="fa-solid fa-tractor"></i></div>
         <h4>Precision Mowing</h4>
         <p>Reliable lawn mowing and care using advanced techniques to keep your yard looking immaculate all season long.</p>
-        <a href="#contact" class="learn-more">Get Estimate <i class="fa-solid fa-arrow-right"></i></a>
+        <button class="learn-more" data-modal="modal-mowing">See More <i class="fa-solid fa-arrow-right"></i></button>
       </div>
 
       <div class="service-card">
         <div class="service-icon"><i class="fa-solid fa-scissors"></i></div>
         <h4>Bush &amp; Hedge Trimming</h4>
         <p>Precision trimming and shaping of bushes and hedges to enhance plant health and improve your property's curb appeal.</p>
-        <a href="#contact" class="learn-more">Get Estimate <i class="fa-solid fa-arrow-right"></i></a>
+        <button class="learn-more" data-modal="modal-trimming">See More <i class="fa-solid fa-arrow-right"></i></button>
       </div>
 
       <div class="service-card" id="cleanup">
         <div class="service-icon"><i class="fa-solid fa-broom"></i></div>
         <h4>Spring &amp; Fall Cleanup</h4>
         <p>Seasonal debris removal, lawn revitalization, and full property maintenance to keep your landscape looking its best year-round.</p>
-        <a href="#contact" class="learn-more">Get Estimate <i class="fa-solid fa-arrow-right"></i></a>
+        <button class="learn-more" data-modal="modal-cleanup">See More <i class="fa-solid fa-arrow-right"></i></button>
       </div>
 
     </div>
@@ -436,6 +436,161 @@
 
 
 <!-- ══════════════════════════════════════════════════
+     SERVICE MODALS
+══════════════════════════════════════════════════ -->
+
+<!-- Modal: Deck Building -->
+<div class="service-modal" id="modal-deck-building" role="dialog" aria-modal="true" aria-labelledby="modal-deck-building-title">
+  <div class="service-modal-dialog">
+    <button class="service-modal-close" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+    <div class="service-modal-img">
+      <img src="Mason Assets/building.webp" alt="Custom deck built by Duncan Enterprises" />
+    </div>
+    <div class="service-modal-body">
+      <p class="section-label">Deck Building</p>
+      <h3 id="modal-deck-building-title">Deck Building Service That Adds Function and Style</h3>
+      <p>Our deck building company has trained leaders with exhaustive experience in home improvement projects. We work diligently to ensure every deck building development goes seamlessly while accomplishing exquisite results — get a deck that supports furniture, your favorite plants, or even a hot tub.</p>
+      <p class="modal-feature-label">Benefits of a New Deck</p>
+      <ul class="modal-features">
+        <li>🏡 Boost curb appeal and property value</li>
+        <li>🎉 Host relaxing outdoor gatherings</li>
+        <li>🌿 Enjoy seclusion and natural privacy</li>
+        <li>✨ Add personalization and style to your home</li>
+      </ul>
+      <div class="service-modal-cta">
+        <a href="#contact" class="btn btn-green"><i class="fa-solid fa-calendar-check"></i>Get Your Free Estimate</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: Deck Repair -->
+<div class="service-modal" id="modal-deck-repair" role="dialog" aria-modal="true" aria-labelledby="modal-deck-repair-title">
+  <div class="service-modal-dialog">
+    <button class="service-modal-close" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+    <div class="service-modal-img">
+      <img src="Mason Assets/repair.webp" alt="Deck repair by Duncan Enterprises" />
+    </div>
+    <div class="service-modal-body">
+      <p class="section-label">Deck Repair</p>
+      <h3 id="modal-deck-repair-title">Superior Choice for Deck Repair in Elliston</h3>
+      <p>Our deck repair company conducts a comprehensive inspection before rolling out a complete and professional repair service. We spot wood rot, loose nails, and cracked or splintered boards — restoring your deck's structural integrity and extending its life.</p>
+      <p class="modal-feature-label">Signs You Need Deck Repair</p>
+      <ul class="modal-features">
+        <li>🔩 Wood rot or loose rails</li>
+        <li>🏗 Footings that are heaving or shifting</li>
+        <li>💧 Pooling water near posts or footings</li>
+        <li>🪵 Warped or sagging floor boards</li>
+        <li>⚠️ Cracks or splinters on deck boards</li>
+      </ul>
+      <div class="service-modal-cta">
+        <a href="#contact" class="btn btn-green"><i class="fa-solid fa-calendar-check"></i>Get Your Free Estimate</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: Mulch Bed Installation -->
+<div class="service-modal" id="modal-mulch-bed" role="dialog" aria-modal="true" aria-labelledby="modal-mulch-bed-title">
+  <div class="service-modal-dialog">
+    <button class="service-modal-close" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+    <div class="service-modal-img">
+      <img src="Mason Assets/mulch.JPG" alt="Professional mulch bed installation" />
+    </div>
+    <div class="service-modal-body">
+      <p class="section-label">Mulch Bed Installation</p>
+      <h3 id="modal-mulch-bed-title">Resilient &amp; Sustainable Mulch Bed Installation</h3>
+      <p>Mulch beds serve as a protective layer, shielding soil from erosion while improving moisture retention and nutrient absorption. Duncan Enterprises applies precise layering techniques to maintain soil integrity, reduce compaction, and promote healthy plant growth across your landscape.</p>
+      <ul class="modal-features">
+        <li>🌿 <strong>Moisture Conservation</strong> – Retains water to keep soil hydrated and roots nourished</li>
+        <li>🛡️ <strong>Weed Suppression</strong> – Minimizes invasive plant growth and reduces maintenance</li>
+        <li>🌱 <strong>Soil Insulation</strong> – Protects roots from extreme weather year-round</li>
+        <li>💨 <strong>Erosion Resistance</strong> – Prevents soil displacement from wind or heavy rain</li>
+        <li>🏡 <strong>Visual Enhancement</strong> – Adds a clean, uniform look to your outdoor spaces</li>
+      </ul>
+      <div class="service-modal-cta">
+        <a href="#contact" class="btn btn-green"><i class="fa-solid fa-calendar-check"></i>Get Your Free Estimate</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: Precision Mowing -->
+<div class="service-modal" id="modal-mowing" role="dialog" aria-modal="true" aria-labelledby="modal-mowing-title">
+  <div class="service-modal-dialog">
+    <button class="service-modal-close" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+    <div class="service-modal-img">
+      <img src="Mason Assets/mowing.avif" alt="Professional lawn mowing service" />
+    </div>
+    <div class="service-modal-body">
+      <p class="section-label">Precision Mowing</p>
+      <h3 id="modal-mowing-title">Efficient Mowing Solutions for Superior Lawn Care</h3>
+      <p>Regular mowing is essential for maintaining a balanced ecosystem, preventing overgrowth, and enhancing soil health. Duncan Enterprises utilizes industry-grade equipment to achieve consistent grass height, promoting even growth and reducing long-term stress on your turf.</p>
+      <ul class="modal-features">
+        <li>🔧 <strong>Advanced Cutting Technology</strong> – Precision-engineered blades for a uniform finish</li>
+        <li>🌾 <strong>Grass Health Enhancement</strong> – Supports root development and reduces disease risks</li>
+        <li>📅 <strong>Scheduled Maintenance Plans</strong> – Consistent care for long-term lawn quality</li>
+        <li>🔍 <strong>Site-Specific Strategies</strong> – Tailored approaches based on terrain and grass type</li>
+      </ul>
+      <div class="service-modal-cta">
+        <a href="#contact" class="btn btn-green"><i class="fa-solid fa-calendar-check"></i>Get Your Free Estimate</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: Bush & Hedge Trimming -->
+<div class="service-modal" id="modal-trimming" role="dialog" aria-modal="true" aria-labelledby="modal-trimming-title">
+  <div class="service-modal-dialog">
+    <button class="service-modal-close" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+    <div class="service-modal-img">
+      <img src="Mason Assets/trimming.webp" alt="Professional bush and hedge trimming" />
+    </div>
+    <div class="service-modal-body">
+      <p class="section-label">Bush &amp; Hedge Trimming</p>
+      <h3 id="modal-trimming-title">Meticulous Bush &amp; Hedge Trimming</h3>
+      <p>Overgrown shrubs and hedges can obstruct walkways, reduce visibility, and diminish your property's curb appeal. Our precise pruning techniques encourage strong regrowth, prevent disease, and improve air circulation — keeping your greenery healthy and your landscape polished all season long.</p>
+      <ul class="modal-features">
+        <li>✔ <strong>Enhanced Growth &amp; Shape</strong> – Prevents overgrowth while maintaining balanced aesthetics</li>
+        <li>✔ <strong>Pest &amp; Disease Prevention</strong> – Reduces risk of infestation and fungal infections</li>
+        <li>✔ <strong>Safety &amp; Accessibility</strong> – Clears pathways and removes driveway obstructions</li>
+        <li>✔ <strong>Defined Edges</strong> – Creates a clean, symmetrical look for a well-kept appearance</li>
+        <li>✔ <strong>Customized Scheduling</strong> – Flexible plans suited for every seasonal need</li>
+      </ul>
+      <div class="service-modal-cta">
+        <a href="#contact" class="btn btn-green"><i class="fa-solid fa-calendar-check"></i>Get Your Free Estimate</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: Spring & Fall Cleanup -->
+<div class="service-modal" id="modal-cleanup" role="dialog" aria-modal="true" aria-labelledby="modal-cleanup-title">
+  <div class="service-modal-dialog">
+    <button class="service-modal-close" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+    <div class="service-modal-img">
+      <img src="Mason Assets/cleaning.webp" alt="Seasonal lawn cleanup service" />
+    </div>
+    <div class="service-modal-body">
+      <p class="section-label">Spring &amp; Fall Cleanup</p>
+      <h3 id="modal-cleanup-title">Comprehensive Seasonal Cleanup for a Thriving Landscape</h3>
+      <p>Proper spring and fall cleanup eliminates debris, enhances soil health, and promotes healthy turf growth. Duncan Enterprises provides thorough cleanup services — including leaf removal, aeration, and dethatching — to keep your outdoor spaces in peak condition year-round.</p>
+      <ul class="modal-features">
+        <li>🏡 <strong>Comprehensive Debris Removal</strong> – Clearing leaves, branches, and organic waste</li>
+        <li>🌱 <strong>Lawn Aeration &amp; Dethatching</strong> – Enhancing soil oxygen levels for healthier roots</li>
+        <li>💦 <strong>Drainage Optimization</strong> – Preventing water accumulation and promoting proper runoff</li>
+        <li>🛠 <strong>Landscape Restoration</strong> – Addressing seasonal damage for a rejuvenated appearance</li>
+        <li>🍂 <strong>Eco-Friendly Waste Disposal</strong> – Responsible removal and recycling of yard waste</li>
+      </ul>
+      <div class="service-modal-cta">
+        <a href="#contact" class="btn btn-green"><i class="fa-solid fa-calendar-check"></i>Get Your Free Estimate</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════
      JAVASCRIPT
 ══════════════════════════════════════════════════ -->
 <script>
@@ -460,7 +615,15 @@
 
     mobileClose.addEventListener('click', closeMobileMenu);
     mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMobileMenu));
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMobileMenu(); });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') {
+        closeMobileMenu();
+        document.querySelectorAll('.service-modal.is-open').forEach(m => {
+          m.classList.remove('is-open');
+          document.body.style.overflow = '';
+        });
+      }
+    });
 
     // Sticky nav shadow
     const navbar = document.querySelector('.navbar');
@@ -525,7 +688,38 @@
 
       document.querySelectorAll('.anim-hidden').forEach(el => io.observe(el));
 
-      // Step-num fill animation
+
+      // Service modals
+    document.querySelectorAll('[data-modal]').forEach(trigger => {
+      trigger.addEventListener('click', () => {
+        const modal = document.getElementById(trigger.dataset.modal);
+        if (!modal) return;
+        modal.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+        modal.querySelector('.service-modal-close').focus();
+      });
+    });
+
+    document.querySelectorAll('.service-modal').forEach(modal => {
+      modal.querySelector('.service-modal-close').addEventListener('click', () => {
+        modal.classList.remove('is-open');
+        document.body.style.overflow = '';
+      });
+      modal.addEventListener('click', e => {
+        if (e.target === modal) {
+          modal.classList.remove('is-open');
+          document.body.style.overflow = '';
+        }
+      });
+      modal.querySelectorAll('a[href="#contact"]').forEach(link => {
+        link.addEventListener('click', () => {
+          modal.classList.remove('is-open');
+          document.body.style.overflow = '';
+        });
+      });
+    });
+
+    // Step-num fill animation
       const stepNums = document.querySelectorAll('.step-num');
       const stepIo = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
