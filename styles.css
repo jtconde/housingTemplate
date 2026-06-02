@@ -490,7 +490,9 @@ footer { background: var(--navy); color: rgba(255,255,255,0.7); }
   .hamburger { display: flex; }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
   .hero-content { grid-template-columns: 1fr; }
-  .hero-card { max-width: 500px; }
+  .hero-card { max-width: 500px; margin: 0 auto; }
+  .hero-stats { justify-content: center; flex-wrap: wrap; }
+  .hero-stats > div { text-align: center; }
   .services .container { grid-template-columns: 1fr; }
   .why-grid { grid-template-columns: repeat(2, 1fr); }
   .process-steps { grid-template-columns: repeat(2, 1fr); gap: 40px; }
