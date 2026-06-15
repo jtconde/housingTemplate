@@ -94,6 +94,9 @@
      HERO
  -->
 <section class="hero" id="home" aria-labelledby="hero-heading">
+  <video class="hero-video" autoplay muted loop playsinline>
+    <source src="Mason Assets/17380736-hd_1920_1080_25fps.mp4" type="video/mp4">
+  </video>
   <div class="hero-bg-pattern"></div>
   <div class="hero-accent"></div>
 
@@ -477,13 +480,14 @@
     mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMobileMenu));
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMobileMenu(); });
 
-    // Sticky nav shadow
+    // Pill → white navbar: toggle .scrolled when hero bottom leaves viewport
     const navbar = document.querySelector('.navbar');
-    window.addEventListener('scroll', () => {
-      navbar.style.boxShadow = window.scrollY > 10
-        ? '0 4px 20px rgba(0,0,0,0.15)'
-        : '0 2px 12px rgba(0,0,0,0.10)';
-    });
+    const heroSection = document.querySelector('.hero');
+    function updateNavbar() {
+      navbar.classList.toggle('scrolled', heroSection.getBoundingClientRect().bottom <= navbar.offsetHeight);
+    }
+    window.addEventListener('scroll', updateNavbar, { passive: true });
+    updateNavbar();
 
     // CTA buttons scroll to contact form
     const heroCard = document.getElementById('contact');
